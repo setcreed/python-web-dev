@@ -1,2 +1,8 @@
 site_name: python web开发知识整理
 theme: readthedocs
+
+
+pages:
+    - 课程简介: 'index.md'
+    - 00_课程简介之笨方法学算法: '00_课程简介之笨方法学算法/why_and_how_to_learn.md'
+    - 01_抽象数据类型和面向对象编程: '01_抽象数据类型和面向对象编程/ADT_OOP.md'
