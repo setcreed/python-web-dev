@@ -4,6 +4,13 @@ repo_name: 'python-web-dev'
 repo_url: 'https://github.com/setcreed/python-web-dev'
 theme: readthedocs
 
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+  - mdx_math:
+      enable_dollar_delimiter: True  #for use of inline $..$
+
 copyright: 'Copyright &copy; 2019 - 2020 setcreed'
 
 
