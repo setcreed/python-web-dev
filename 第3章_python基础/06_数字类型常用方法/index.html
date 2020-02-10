@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="setcreed">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>06_数字类型常用方法 - python web开发知识整理</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "06_\u6570\u5b57\u7c7b\u578b\u5e38\u7528\u65b9\u6cd5";
+    var mkdocs_page_input_path = "\u7b2c3\u7ae0_python\u57fa\u7840\\06_\u6570\u5b57\u7c7b\u578b\u5e38\u7528\u65b9\u6cd5.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> python web开发知识整理</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">课程简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第1章 计算机基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第1章_计算机基础/01_markdown文档的编写/">01_markdown文档的编写</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第1章_计算机基础/02_计算机基础/">02_计算机基础</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第2章 python解释器和集成环境</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第2章_python解释器和集成环境/01_python介绍/">01_python介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第2章_python解释器和集成环境/02_python解释器pip源修改/">02_python解释器pip源修改</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第2章_python解释器和集成环境/03_pycharm介绍/">03_pycharm介绍</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第3章 python基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../01_变量与常量/">01_变量与常量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02_注释/">02_注释</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../03_python内存管理/">03_python内存管理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../04_基本数据类型/">04_基本数据类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../05_花式赋值，解压缩、用户交互，格式化输出/">05_花式赋值，解压缩、用户交互，格式化输出</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">06_数字类型常用方法</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">数字类型内置方法</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_2">整型</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">浮点型</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">复数</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">数字类型方法</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../07_字符串类型常用方法/">07_字符串类型常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../08_列表常用方法/">08_列表常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../09_元组常用方法/">09_元组常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../10_字典常用方法/">10_字典常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../11_集合常用方法/">11_集合常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../12_深浅拷贝/">12_深浅拷贝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../13_异常处理/">13_异常处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../14_基本运算符/">14_基本运算符</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../15_流程控制/">15_流程控制</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第4章 文件处理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第4章_文件处理/01_字符编码/">01_字符编码</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第4章_文件处理/02_python2与python3字符编码的区别/">02_python2与python3字符编码的区别</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第4章_文件处理/03_文件操作/">03_文件操作</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第5章 函数基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/01_函数的定义/">01_函数的定义</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/02_函数的调用、函数的返回值/">02_函数的调用、函数的返回值</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/03_函数的参数/">03_函数的参数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/04_函数的对象、函数的嵌套/">04_函数的对象、函数的嵌套</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/05_名称空间与作用域/">05_名称空间与作用域</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第6章 函数进阶操作</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/01_闭包函数/">01_闭包函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/02_装饰器/">02_装饰器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/03_迭代器/">03_迭代器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/04_三元表达式/">04_三元表达式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/05_列表推导式、字典生成式、生成器/">05_列表推导式、字典生成式、生成器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/06_函数递归/">06_函数递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/07_匿名函数/">07_匿名函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/08_内置函数/">08_内置函数</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第7章 模块基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第7章_模块基础/01_python模块介绍/">01_python模块介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第7章_模块基础/02_循环导入问题/">02_循环导入问题</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第7章_模块基础/03_python的包/">03_python的包</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第8章 python常用模块</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/01_os模块/">01_os模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/02_sys模块/">02_sys模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/03_json和pickle模块/">03_json和pickle模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/04_logging模块/">04_logging模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/05_time模块/">05_time模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/06_datetime模块/">06_datetime模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/07_random模块/">07_random模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/08_typing模块/">08_typing模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/09_hashlib和hmac模块/">09_hashlib和hmac模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/10_re模块/">10_re模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/11_数据分析常用的三个模块/">11_数据分析常用的三个模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/12_jiieba库、wordcloud词云/">12_jiieba库、wordcloud词云</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/13_exec模块/">13_exec模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/14 subprocess模块/">14 subprocess模块</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第9章_面向对象基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/01_面向对象编程介绍/">01_面向对象编程介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/02_类和对象/">02_类和对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/03_对象和类的查找顺序/">03_对象和类的查找顺序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/04_对象的绑定方法/">04_对象的绑定方法</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第10章_面向对象进阶</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/01_类的继承/">01_类的继承</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/02_类的派生/">02_类的派生</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/03_菱形继承问题/">03_菱形继承问题</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/04_类的组合/">04_类的组合</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/05_类的封装/">05_类的封装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/06_property/">06_property</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/07_类的多态/">07_类的多态</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/08_类的绑定方法和非绑定方法/">08_类的绑定方法和非绑定方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/09_isinstance和issubclass/">09_isinstance和issubclass</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第11章_面向对象高级特性</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/01_反射/">01_反射</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/02_类的魔法方法/">02_类的魔法方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/03_元类/">03_元类</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/04_单例模式/">04_单例模式</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第12章_网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/01_软件开发架构/">01_软件开发架构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/02_OSI七层模型/">02_OSI七层模型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/03_TCP三次握手，四次挥手/">03_TCP三次握手，四次挥手</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/04_基于TCP协议的socket套接字编程/">04_基于TCP协议的socket套接字编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/05_TCP粘包问题、解决粘包问题/">05_TCP粘包问题、解决粘包问题</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/06_基于UDP协议的socket套接字编程/">06_基于UDP协议的socket套接字编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/07_socketserver/">07_socketserver</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第12章_网络编程/08_网络编程小结/">08_网络编程小结</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第13章_并发编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/01_操作系统发展史/">01_操作系统发展史</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/02_进程基础/">02_进程基础</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/03_同步异步阻塞非阻塞/">03_同步异步阻塞非阻塞</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/04_进程特性/">04_进程特性</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/05_TCP协议套接字，服务端实现接收客户端的连接并发/">05_TCP协议套接字，服务端实现接收客户端的连接并发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/06_进程互斥锁/">06_进程互斥锁</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/07_进程队列/">07_进程队列</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/08_进程间通信/">08_进程间通信</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/09_生产者与消费者/">09_生产者与消费者</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/10_线程/">10_线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/11_GIL全局解释器锁/">11_GIL全局解释器锁</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/12_多线程应用/">12_多线程应用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/13_死锁和递归锁/">13_死锁和递归锁</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/14_信号量、线程队列/">14_信号量、线程队列</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/15_Event事件/">15_Event事件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/16_进程池与线程池/">16_进程池与线程池</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/17_协程/">17_协程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/18_Gevent模块/">18_Gevent模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/19_TCP服务端socket套接字实现协程/">19_TCP服务端socket套接字实现协程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/20_并发编程小结/">20_并发编程小结</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第14章_常用数据库</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">MySQL数据库</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/00_MySQL初始/">00_MySQL初始</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/01_MySQL字符集/">01_MySQL字符集</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/02_MySQL对数据库、表的操作/">02_MySQL对数据库、表的操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/03_MySQL操作数据行/">03_MySQL操作数据行</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/04_单表查询/">04_单表查询</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/05_多表查询/">05_多表查询</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/06_python操作MySQL/">06_python操作MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/07_MySQL索引/">07_MySQL索引</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/08_explain查询性能分析/">08_explain查询性能分析</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/09_慢查询日志/">09_慢查询日志</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/10_MySQL高级特性/">10_MySQL高级特性</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/11_数据库备份/">11_数据库备份</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/12_数据库表设计/">12_数据库表设计</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">PostgreSQL数据库</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/PostgreSQL数据库/postgresql安装及简单使用/">postgresql安装及简单使用</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Redis数据库</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/01_Redis简介及安装/">01_Redis简介及安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/02_redis数据类型操作/">02_redis数据类型操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/03_redis系统级命令/">03_redis系统级命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/04_redis杂谈/">04_redis杂谈</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/05_Redis操作以及python操作redis/">05_Redis操作以及python操作redis</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/06_redis系列总结/">06_redis系列总结</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/07_redis面试题/">07_redis面试题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第15章_前端</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/01_前端之html基础/">01_前端之html基础</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/02_html之form表单/">02_html之form表单</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/03_前端之css(一)/">03_前端之css(一)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/04_前端之css(二)/">04_前端之css(二)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/05_前端之js/">05_前端之js</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/06_前端基础之BOM和DOM/">06_前端基础之BOM和DOM</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/07_jQuery/">07_jQuery</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/08_前端之Bootstrap基础/">08_前端之Bootstrap基础</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">python web开发知识整理</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>第3章 python基础 &raquo;</li>
+        
+      
+    
+    <li>06_数字类型常用方法</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/setcreed/python-web-dev/edit/master/docs/第3章_python基础/06_数字类型常用方法.md"> Edit on python-web-dev</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">数字类型内置方法</h1>
+<h2 id="_2">整型</h2>
+<ul>
+<li>整数， 1/2/3/12/2019</li>
+<li>整形用来描述什么， 身高/年龄/体重</li>
+</ul>
+<pre><code class="python">age = 18
+height = 180
+</code></pre>
+
+<h2 id="_3">浮点型</h2>
+<p>浮点数，小数</p>
+<pre><code class="python">salary = 10
+print(salary)
+</code></pre>
+
+<h2 id="_4">复数</h2>
+<pre><code class="python">z = 1 + 2j
+print(z.real,z.imag)
+## 1.0 2.0
+</code></pre>
+
+<h2 id="_5">数字类型方法</h2>
+<pre><code class="python">print(pow(2,3))  # 幂运算
+print(1.2+2.3)  # 3.5
+print(0.1+0.2)  # 0.30000000000000004
+print(round(0.1+0.44,1))   # 0.5  四舍五入
+print(abs(-1))   # 绝对值
+print(divmod(16,3))   # 运算结果(商数， 余数）
+</code></pre>
+
+<p>浮点数计算会有误差，小数精准</p>
+<p>这就是机器进行二进制计算引入的误差，为了消除这样的误差，进行更加精确的浮点计算，就要是用到<code>decimal</code>模块。</p>
+<pre><code class="python">from decimal import *
+a = Decimal('0.1')   # Decimal函数传入的浮点数必须加引号，构成字符串形式，传入整数就不用了
+b = Decimal('0.2')
+print(type(a+b),a+b)  # &lt;class 'decimal.Decimal'&gt; 0.3
+
+print(Decimal(0.1))   #    0.1000000000000000055511151231257827021181583404541015625    Decimal函数传入浮点数并不精确
+</code></pre>
+
+<p>小数的精准计算：</p>
+<pre><code class="python">from decimal import *
+getcontext().prec = 4   # 设置有效数字为4
+print(Decimal('2.2')/Decimal('1.3'))   # 1.692
+from decimal import *
+print(Decimal('3.141592653').quantize(Decimal('0.0000')))   # 设定小数位数 这里设置了4位
+
+# 打印结果：3.1416
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../07_字符串类型常用方法/" class="btn btn-neutral float-right" title="07_字符串类型常用方法">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../05_花式赋值，解压缩、用户交互，格式化输出/" class="btn btn-neutral" title="05_花式赋值，解压缩、用户交互，格式化输出"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2019 - 2020 setcreed</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../05_花式赋值，解压缩、用户交互，格式化输出/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../07_字符串类型常用方法/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

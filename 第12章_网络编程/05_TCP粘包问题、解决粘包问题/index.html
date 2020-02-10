@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="setcreed">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>05_TCP粘包问题、解决粘包问题 - python web开发知识整理</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "05_TCP\u7c98\u5305\u95ee\u9898\u3001\u89e3\u51b3\u7c98\u5305\u95ee\u9898";
+    var mkdocs_page_input_path = "\u7b2c12\u7ae0_\u7f51\u7edc\u7f16\u7a0b\\05_TCP\u7c98\u5305\u95ee\u9898\u3001\u89e3\u51b3\u7c98\u5305\u95ee\u9898.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> python web开发知识整理</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">课程简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第1章 计算机基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第1章_计算机基础/01_markdown文档的编写/">01_markdown文档的编写</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第1章_计算机基础/02_计算机基础/">02_计算机基础</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第2章 python解释器和集成环境</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第2章_python解释器和集成环境/01_python介绍/">01_python介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第2章_python解释器和集成环境/02_python解释器pip源修改/">02_python解释器pip源修改</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第2章_python解释器和集成环境/03_pycharm介绍/">03_pycharm介绍</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第3章 python基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/01_变量与常量/">01_变量与常量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/02_注释/">02_注释</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/03_python内存管理/">03_python内存管理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/04_基本数据类型/">04_基本数据类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/05_花式赋值，解压缩、用户交互，格式化输出/">05_花式赋值，解压缩、用户交互，格式化输出</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/06_数字类型常用方法/">06_数字类型常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/07_字符串类型常用方法/">07_字符串类型常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/08_列表常用方法/">08_列表常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/09_元组常用方法/">09_元组常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/10_字典常用方法/">10_字典常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/11_集合常用方法/">11_集合常用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/12_深浅拷贝/">12_深浅拷贝</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/13_异常处理/">13_异常处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/14_基本运算符/">14_基本运算符</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第3章_python基础/15_流程控制/">15_流程控制</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第4章 文件处理</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第4章_文件处理/01_字符编码/">01_字符编码</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第4章_文件处理/02_python2与python3字符编码的区别/">02_python2与python3字符编码的区别</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第4章_文件处理/03_文件操作/">03_文件操作</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第5章 函数基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/01_函数的定义/">01_函数的定义</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/02_函数的调用、函数的返回值/">02_函数的调用、函数的返回值</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/03_函数的参数/">03_函数的参数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/04_函数的对象、函数的嵌套/">04_函数的对象、函数的嵌套</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第5章_函数基础/05_名称空间与作用域/">05_名称空间与作用域</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第6章 函数进阶操作</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/01_闭包函数/">01_闭包函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/02_装饰器/">02_装饰器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/03_迭代器/">03_迭代器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/04_三元表达式/">04_三元表达式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/05_列表推导式、字典生成式、生成器/">05_列表推导式、字典生成式、生成器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/06_函数递归/">06_函数递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/07_匿名函数/">07_匿名函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第6章_函数进阶操作/08_内置函数/">08_内置函数</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第7章 模块基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第7章_模块基础/01_python模块介绍/">01_python模块介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第7章_模块基础/02_循环导入问题/">02_循环导入问题</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第7章_模块基础/03_python的包/">03_python的包</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第8章 python常用模块</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/01_os模块/">01_os模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/02_sys模块/">02_sys模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/03_json和pickle模块/">03_json和pickle模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/04_logging模块/">04_logging模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/05_time模块/">05_time模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/06_datetime模块/">06_datetime模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/07_random模块/">07_random模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/08_typing模块/">08_typing模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/09_hashlib和hmac模块/">09_hashlib和hmac模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/10_re模块/">10_re模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/11_数据分析常用的三个模块/">11_数据分析常用的三个模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/12_jiieba库、wordcloud词云/">12_jiieba库、wordcloud词云</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/13_exec模块/">13_exec模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第8章_python常用模块/14 subprocess模块/">14 subprocess模块</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第9章_面向对象基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/01_面向对象编程介绍/">01_面向对象编程介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/02_类和对象/">02_类和对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/03_对象和类的查找顺序/">03_对象和类的查找顺序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第9章_面向对象基础/04_对象的绑定方法/">04_对象的绑定方法</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第10章_面向对象进阶</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/01_类的继承/">01_类的继承</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/02_类的派生/">02_类的派生</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/03_菱形继承问题/">03_菱形继承问题</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/04_类的组合/">04_类的组合</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/05_类的封装/">05_类的封装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/06_property/">06_property</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/07_类的多态/">07_类的多态</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/08_类的绑定方法和非绑定方法/">08_类的绑定方法和非绑定方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第10章_面向对象进阶/09_isinstance和issubclass/">09_isinstance和issubclass</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第11章_面向对象高级特性</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/01_反射/">01_反射</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/02_类的魔法方法/">02_类的魔法方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/03_元类/">03_元类</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第11章_面向对象高级特性/04_单例模式/">04_单例模式</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第12章_网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../01_软件开发架构/">01_软件开发架构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../02_OSI七层模型/">02_OSI七层模型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../03_TCP三次握手，四次挥手/">03_TCP三次握手，四次挥手</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../04_基于TCP协议的socket套接字编程/">04_基于TCP协议的socket套接字编程</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">05_TCP粘包问题、解决粘包问题</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#tcp">TCP粘包问题</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">粘包两种情况</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">解决粘包问题</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#struct">struct模块的使用</a></li>
+        
+            <li><a class="toctree-l4" href="#struct_1">使用struct模块解决粘包</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">优化解决粘包问题</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_4">上传大文件</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_5">服务端</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">客户端</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../06_基于UDP协议的socket套接字编程/">06_基于UDP协议的socket套接字编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../07_socketserver/">07_socketserver</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../08_网络编程小结/">08_网络编程小结</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第13章_并发编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/01_操作系统发展史/">01_操作系统发展史</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/02_进程基础/">02_进程基础</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/03_同步异步阻塞非阻塞/">03_同步异步阻塞非阻塞</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/04_进程特性/">04_进程特性</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/05_TCP协议套接字，服务端实现接收客户端的连接并发/">05_TCP协议套接字，服务端实现接收客户端的连接并发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/06_进程互斥锁/">06_进程互斥锁</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/07_进程队列/">07_进程队列</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/08_进程间通信/">08_进程间通信</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/09_生产者与消费者/">09_生产者与消费者</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/10_线程/">10_线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/11_GIL全局解释器锁/">11_GIL全局解释器锁</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/12_多线程应用/">12_多线程应用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/13_死锁和递归锁/">13_死锁和递归锁</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/14_信号量、线程队列/">14_信号量、线程队列</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/15_Event事件/">15_Event事件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/16_进程池与线程池/">16_进程池与线程池</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/17_协程/">17_协程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/18_Gevent模块/">18_Gevent模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/19_TCP服务端socket套接字实现协程/">19_TCP服务端socket套接字实现协程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第13章_并发编程/20_并发编程小结/">20_并发编程小结</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第14章_常用数据库</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">MySQL数据库</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/00_MySQL初始/">00_MySQL初始</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/01_MySQL字符集/">01_MySQL字符集</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/02_MySQL对数据库、表的操作/">02_MySQL对数据库、表的操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/03_MySQL操作数据行/">03_MySQL操作数据行</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/04_单表查询/">04_单表查询</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/05_多表查询/">05_多表查询</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/06_python操作MySQL/">06_python操作MySQL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/07_MySQL索引/">07_MySQL索引</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/08_explain查询性能分析/">08_explain查询性能分析</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/09_慢查询日志/">09_慢查询日志</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/10_MySQL高级特性/">10_MySQL高级特性</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/11_数据库备份/">11_数据库备份</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/MySQL数据库/12_数据库表设计/">12_数据库表设计</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">PostgreSQL数据库</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/PostgreSQL数据库/postgresql安装及简单使用/">postgresql安装及简单使用</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Redis数据库</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/01_Redis简介及安装/">01_Redis简介及安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/02_redis数据类型操作/">02_redis数据类型操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/03_redis系统级命令/">03_redis系统级命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/04_redis杂谈/">04_redis杂谈</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/05_Redis操作以及python操作redis/">05_Redis操作以及python操作redis</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/06_redis系列总结/">06_redis系列总结</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../第14章_常用数据库/Redis数据库/07_redis面试题/">07_redis面试题</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">第15章_前端</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/01_前端之html基础/">01_前端之html基础</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/02_html之form表单/">02_html之form表单</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/03_前端之css(一)/">03_前端之css(一)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/04_前端之css(二)/">04_前端之css(二)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/05_前端之js/">05_前端之js</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/06_前端基础之BOM和DOM/">06_前端基础之BOM和DOM</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/07_jQuery/">07_jQuery</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../第15章_前端/08_前端之Bootstrap基础/">08_前端之Bootstrap基础</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">python web开发知识整理</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>第12章_网络编程 &raquo;</li>
+        
+      
+    
+    <li>05_TCP粘包问题、解决粘包问题</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/setcreed/python-web-dev/edit/master/docs/第12章_网络编程/05_TCP粘包问题、解决粘包问题.md"> Edit on python-web-dev</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tcp">TCP粘包问题</h1>
+<p>服务端第一次发送的数据，客户端无法精确一次性接收完毕，下一次发送的数据与上一次数据黏在一起了。</p>
+<ol>
+<li>无法预测对方需要接收的数据大小长度</li>
+<li>TCP流式协议，会将多次连续发送数据量小、并且时间间隔短的数据一次性打包发送。</li>
+</ol>
+<p>基于TCP的套接字客户端往服务端上传文件，发送时文件内容是按照一段一段的字节流发送的，在接收方看了，根本不知道该文件的字节流从何处开始何处结束。</p>
+<h1 id="_1">粘包两种情况</h1>
+<ol>
+<li>服务端需要等缓冲区满才发送出去，造成粘包（发送数据时间间隔很短，数据了很小，会合到一起，产生粘包）</li>
+</ol>
+<pre><code class="python"># server.py
+
+import socket
+
+server = socket.socket()
+server.bind(
+    ('127.0.0.1', 9527)
+)
+server.listen(5)
+conn, addr = server.accept()
+
+data1 = conn.recv(1024)
+data2 = conn.recv(1024)
+data3 = conn.recv(1024)
+print(data1)
+print(data2)
+print(data3)
+
+# client.py
+
+import socket
+
+client = socket.socket()
+client.connect(
+    ('127.0.0.1', 9527)
+)
+
+client.send(b'hello')
+client.send(b'hello')
+client.send(b'hello')
+
+client.close()
+
+'''
+b'hellohellohello'
+b''
+b''
+'''
+</code></pre>
+
+<ol>
+<li>客户端发送了一段数据，服务端只收了一小部分，服务端下次再收的时候还是从缓冲区拿上次遗留的数据</li>
+</ol>
+<pre><code class="python"># 服务端
+import socket
+
+server = socket.socket()
+server.bind(
+    ('127.0.0.1', 9527)
+)
+
+server.listen(5)
+conn, addr = server.accept()
+
+data1 = conn.recv(2)
+data2 = conn.recv(20)
+
+print(data1)
+print(data2)
+
+# 客户端
+import socket
+
+client = socket.socket()
+client.connect(
+    ('127.0.0.1', 9527)
+)
+
+client.send(b'hello world and shcaondskasd nknasksfn km')
+
+client.close()
+'''
+b'he'
+b'llo world and shcaon
+'''
+</code></pre>
+
+<h1 id="_2">解决粘包问题</h1>
+<p>使用struct模块</p>
+<p>struct模块是一个可以将很长的数据的长度，压缩成固定的长度的一个标记（数据报头）。</p>
+<p>必须先定义报头，发送报头，再发送真实数据</p>
+<h2 id="struct">struct模块的使用</h2>
+<pre><code class="python">import struct
+str1 = '123a56'
+
+# 打包
+# i模式会将数据长度压缩成4个bytes
+headers = struct.pack('i', len(str1))
+print(headers)
+print(len(headers))
+
+# 解包
+data_len = struct.unpack('i', headers)
+print(data_len[0])  # 真实数据长度为len(str1)
+</code></pre>
+
+<h2 id="struct_1">使用struct模块解决粘包</h2>
+<p>服务端：</p>
+<pre><code class="python">import struct
+import socket
+import subprocess
+
+server = socket.socket()
+server.bind(
+    ('127.0.0.1', 8888)
+)
+
+server.listen(5)
+while True:
+    conn, addr = server.accept()
+    print(addr)
+    while True:
+        try:
+            cmd = conn.recv(1024).decode('utf-8')
+            if len(cmd) == 0:
+                continue
+            if cmd == 'q':
+                break
+            res = subprocess.Popen(
+                cmd,
+                shell=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE)
+            data = res.stdout.read() + res.stderr.read()
+            # 打包压缩
+            headers = struct.pack('i', len(data))
+            # 先发送头部
+            conn.send(headers)
+            # 再发送真实数据
+            conn.send(data)
+
+        except Exception:
+            break
+
+    conn.close()
+</code></pre>
+
+<p>客户端：</p>
+<pre><code class="python">import struct
+import socket
+
+client = socket.socket()
+client.connect(
+    ('127.0.0.1', 8888)
+)
+
+while True:
+    cmd = input('cmd&gt;&gt;&gt;:')
+    client.send(cmd.encode('utf-8'))
+    if cmd == 'q':
+        break
+
+    # 先获取数据报头
+    headers = client.recv(4)
+    # 再解包获取真实数据
+    data_len = struct.unpack('i', headers)[0]
+    # 接收真实数据长度
+    data = client.recv(data_len)
+
+    print(data.decode('gbk'))
+
+client.close()
+</code></pre>
+
+<h2 id="_3">优化解决粘包问题</h2>
+<p>把数据真实长度和数据的描述信息一同发送过去</p>
+<p>服务端：</p>
+<pre><code class="python">import socket
+import struct
+import json
+
+server = socket.socket()
+server.bind(('127.0.0.1', 9999))
+
+server.listen(5)
+
+while True:
+    conn, addr = server.accept()
+    print(addr)
+
+    while True:
+        try:
+            # 接收数据报头
+            headers = conn.recv(4)
+
+            # 解包获取真实数据长度
+            data_len = struct.unpack('i', headers)[0]
+
+            bytes_data = conn.recv(data_len)
+            back_dic = json.loads(bytes_data.decode('utf-8'))
+            print(back_dic)
+
+        except Exception:
+            break
+
+    conn.close()
+</code></pre>
+
+<p>客户端：</p>
+<pre><code class="python">import socket
+import struct
+import json
+
+client = socket.socket()
+client.connect(('127.0.0.1', 9999))
+
+while True:
+    dic = {
+        'file_name': 'shoot on me',
+        'file_size': 10000000
+    }
+
+    # json序列化
+    json_data = json.dumps(dic)
+    json_bytes = json_data.encode('utf-8')
+
+    # 压缩
+    headers = struct.pack('i', len(json_bytes))
+
+    client.send(headers)
+    client.send(json_bytes)
+</code></pre>
+
+<h1 id="_4">上传大文件</h1>
+<h2 id="_5">服务端</h2>
+<pre><code class="python">import socket
+import struct
+import json
+
+server = socket.socket()
+server.bind(('127.0.0.1', 9999))
+
+server.listen(5)
+
+
+conn, addr = server.accept()
+print(addr)
+
+while True:
+    try:
+        headers = conn.recv(4)
+        data_len = struct.unpack('i', headers)[0]
+        bytes_data = conn.recv(data_len)
+
+        back_dic = json.loads(bytes_data.decode('utf-8'))
+        print(back_dic)
+
+        file_name = back_dic.get('file_name')
+        file_size = back_dic.get('file_size')
+
+        init_data = 0
+        # 写入文件视频
+        with open(file_name, 'wb') as f:
+            while init_data &lt; file_size:
+                data = conn.recv(1024)
+                f.write(data)
+                init_data += len(data)
+            print(f'{file_name}接收完毕! ')
+    except Exception as e:
+        print(e)
+        break
+
+conn.close()
+</code></pre>
+
+<h2 id="_6">客户端</h2>
+<pre><code class="python">import socket
+import struct
+import json
+
+client = socket.socket()
+client.connect(('127.0.0.1', 9999))
+
+
+# 1.打开视频文件，获取视频数据
+with open(r'D:\pycharm_project\忌日快乐2.mkv', 'rb') as f:
+    movie_bytes = f.read()
+# 2.为视频组织一个字典
+send_dic = {
+    'file_name': '忌日快乐2.mkv',
+    'file_size': len(movie_bytes)
+}
+# 3.先打包字典，发送headers，再发字典真实数据
+json_data = json.dumps(send_dic)
+bytes_data = json_data.encode('utf-8')
+headers = struct.pack('i', len(bytes_data))
+client.send(headers)
+client.send(bytes_data)
+# 再发真实视频数据
+init_data = 0
+num = 1
+with open(r'D:\pycharm_project\忌日快乐2.mkv', 'rb') as f:
+    while init_data &lt; len(movie_bytes):
+        send_data = f.read(1024)
+        print(send_data, num)
+        num += 1
+        client.send(send_data)
+        init_data += len(send_data)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../06_基于UDP协议的socket套接字编程/" class="btn btn-neutral float-right" title="06_基于UDP协议的socket套接字编程">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../04_基于TCP协议的socket套接字编程/" class="btn btn-neutral" title="04_基于TCP协议的socket套接字编程"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2019 - 2020 setcreed</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../04_基于TCP协议的socket套接字编程/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../06_基于UDP协议的socket套接字编程/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
