@@ -767,9 +767,11 @@ print(random.random())
 <li>公式法计算</li>
 </ul>
 <p>圆周率计算公式：</p>
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \pi = \sum_{k=0}^\infty [\frac{1}{16^k} (\frac{4}{8k+1}-\frac{2}{8k+4}-\frac{1}{8k+5}-\frac{1}{8k+6})]
-$$</p>
+</script>
+</p>
 <pre><code class="python">pi = 0
 k = 0
 while True:
@@ -840,6 +842,7 @@ print(count/1000000*4)
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>
 
 </body>

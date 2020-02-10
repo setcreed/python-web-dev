@@ -898,38 +898,56 @@ B|21|178
 <h2 id="_14">数学公式</h2>
 <p>想要运用 Markdown 数学公式，必须在代码首尾加上这样一个符号<code>$</code> ，对其进行特殊标注。行内公式用<code>$代码$</code></p>
 <ul>
-<li>$a+b$</li>
+<li>
+<script type="math/tex">a+b</script>
+</li>
 </ul>
 <p>上标采用<code>$^上标内容$</code>，下标采用<code>$_下标内容$</code></p>
 <ul>
-<li>$x^2$</li>
-<li>$C_2H_5OH$</li>
+<li>
+<script type="math/tex">x^2</script>
+</li>
+<li>
+<script type="math/tex">C_2H_5OH</script>
+</li>
 </ul>
 <p>多个字符上标或下标用{}包裹作为一个单位</p>
 <ul>
-<li>$x^{2n}$</li>
-<li>$x_{2n}$</li>
+<li>
+<script type="math/tex">x^{2n}</script>
+</li>
+<li>
+<script type="math/tex">x_{2n}</script>
+</li>
 </ul>
 <pre><code>$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$
 </code></pre>
 
-<p>$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+<p>
+<script type="math/tex">\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}</script>
+</p>
 <pre><code>$\frac{1}{2}$
 </code></pre>
 
-<p>$\frac{1}{2}$</p>
+<p>
+<script type="math/tex">\frac{1}{2}</script>
+</p>
 <pre><code>$\sum^{10}_{i=1}f(i)\,{thanks}$
 </code></pre>
 
-<p>$\sum^{10}_{i=1}f(i)\,{thanks}$</p>
+<p>
+<script type="math/tex">\sum^{10}_{i=1}f(i)\,{thanks}</script>
+</p>
 <pre><code>$$
 \sum^{10}_{i=1}f(i)\,{thanks}
 $$
 </code></pre>
 
-<p>$$
+<p>
+<script type="math/tex; mode=display">
 \sum_{i=1}^{10}f(i)\,{thanks}
-$$</p>
+</script>
+</p>
 <ul>
 <li>
 <p>基础markdown语法参考：<a href="https://www.appinn.com/markdown/">https://www.appinn.com/markdown/</a></p>
@@ -985,6 +1003,7 @@ $$</p>
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>
 
 </body>
