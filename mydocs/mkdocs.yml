@@ -15,7 +15,7 @@ copyright: 'Copyright &copy; 2019 - 2020 setcreed'
 
 
 pages:
-    - 课程简介: 'index.md'
+    - 前言: 'index.md'
     - 第1章 计算机基础:
         - 01_markdown文档的编写: '第1章_计算机基础/01_markdown文档的编写.md'
         - 02_计算机基础: '第1章_计算机基础/02_计算机基础.md'

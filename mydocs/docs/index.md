@@ -1,17 +1,15 @@
-# Welcome to MkDocs
+记录python web开发，个人学习笔记
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
 
-## Commands
+```
+"""
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+ ____        _   _                  __        __   _          ____       _     _
+|  _ \ _   _| |_| |__   ___  _ __   \ \      / /__| |__      / ___|_   _(_) __| | ___
+| |_) | | | | __| '_ \ / _ \| '_ \   \ \ /\ / / _ \ '_ \    | |  _| | | | |/ _` |/ _ \
+|  __/| |_| | |_| | | | (_) | | | |   \ V  V /  __/ |_) |   | |_| | |_| | | (_| |  __/
+|_|    \__, |\__|_| |_|\___/|_| |_|    \_/\_/ \___|_.__/     \____|\__,_|_|\__,_|\___|
+       |___/
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+"""
+```
