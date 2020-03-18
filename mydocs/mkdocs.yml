@@ -2,19 +2,43 @@ site_name: python web开发知识整理
 site_author: 'setcreed'
 repo_name: 'python-web-dev'
 repo_url: 'https://github.com/setcreed/python-web-dev'
-theme: readthedocs
+# theme: readthedocs
+
+# Configuration, https://squidfunk.github.io/mkdocs-material/
+theme:
+  name: 'material'
+  palette:
+    primary: 'black'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
+extra:
+  # disqus: 'setcreed'
+  social:
+    - type: 'github'
+      link: 'https://github.com/setcreed'
+
 markdown_extensions:
+  - admonition
   - mdx_math:
-      enable_dollar_delimiter: True  #for use of inline $..$
+      enable_dollar_delimiter: true  #for use of inline $..$
+  - codehilite: # https://squidfunk.github.io/mkdocs-material/extensions/codehilite/
+      linenums: true
+      guess_lang: true
+  - toc:
+      permalink: true
+  - pymdownx.superfences
 
 copyright: 'Copyright &copy; 2019 - 2020 setcreed'
 
 
-pages:
+nav:
     - 前言: 'index.md'
     - 第1章 计算机基础:
         - 01_markdown文档的编写: '第1章_计算机基础/01_markdown文档的编写.md'
@@ -152,7 +176,9 @@ pages:
             - 05_Redis操作以及python操作redis: '第14章_常用数据库/Redis数据库/05_Redis操作以及python操作redis.md'
             - 06_redis系列总结: '第14章_常用数据库/Redis数据库/06_redis系列总结.md'
             - 07_redis面试题: '第14章_常用数据库/Redis数据库/07_redis面试题.md'
-    - 第15章_前端:
+        - MongoDB数据库:
+            - MangoDB简单使用: '第14章_常用数据库/MongoDB数据库/NoSQL概览与Mongdb.md'
+    - 第15章_前端基础:
         - 01_前端之html基础: '第15章_前端/01_前端之html基础.md'
         - 02_html之form表单: '第15章_前端/02_html之form表单.md'
         - 03_前端之css(一): '第15章_前端/03_前端之css(一).md'
@@ -161,3 +187,10 @@ pages:
         - 06_前端基础之BOM和DOM: '第15章_前端/06_前端基础之BOM和DOM.md'
         - 07_jQuery: '第15章_前端/07_jQuery.md'
         - 08_前端之Bootstrap基础: '第15章_前端/08_前端之Bootstrap基础.md'
+    - 第16章_前端框架之vue:
+        - 01_vue基础: '第16章_前端框架之vue/01_vue基础.md'
+        - 02_vue指令: '第16章_前端框架之vue/02_vue指令.md'
+        - 03_vue组件: '第16章_前端框架之vue/03_vue组件.md'
+        - 04_vue项目、路由: '第16章_前端框架之vue/04_vue项目、路由.md'
+        - 05_vue项目安装插件配置: '第16章_前端框架之vue/05_vue项目安装插件配置.md'
+        

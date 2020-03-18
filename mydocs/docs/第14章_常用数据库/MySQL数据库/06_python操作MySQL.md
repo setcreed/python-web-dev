@@ -101,7 +101,7 @@ else:
 
 ## execute()之sql注入问题
 
-![img](https://images.cnblogs.com/cnblogs_com/setcreed/1579889/o_mysql1.jpg)
+![](https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200318222756.png)
 
 
 
