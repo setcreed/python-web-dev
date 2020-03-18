@@ -1,1087 +1,2835 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="setcreed">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>07_jQuery - python web开发知识整理</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "07_jQuery";
-    var mkdocs_page_input_path = "\u7b2c15\u7ae0_\u524d\u7aef\\07_jQuery.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
 
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> python web开发知识整理</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="setcreed">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>07_jQuery - python web开发知识整理</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#jquery" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="python web开发知识整理" aria-label="python web开发知识整理" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">前言</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第1章 计算机基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第1章_计算机基础/01_markdown文档的编写/">01_markdown文档的编写</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第1章_计算机基础/02_计算机基础/">02_计算机基础</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第2章 python解释器和集成环境</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第2章_python解释器和集成环境/01_python介绍/">01_python介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第2章_python解释器和集成环境/02_python解释器pip源修改/">02_python解释器pip源修改</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第2章_python解释器和集成环境/03_pycharm介绍/">03_pycharm介绍</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第3章 python基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/01_变量与常量/">01_变量与常量</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/02_注释/">02_注释</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/03_python内存管理/">03_python内存管理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/04_基本数据类型/">04_基本数据类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/05_花式赋值，解压缩、用户交互，格式化输出/">05_花式赋值，解压缩、用户交互，格式化输出</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/06_数字类型常用方法/">06_数字类型常用方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/07_字符串类型常用方法/">07_字符串类型常用方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/08_列表常用方法/">08_列表常用方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/09_元组常用方法/">09_元组常用方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/10_字典常用方法/">10_字典常用方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/11_集合常用方法/">11_集合常用方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/12_深浅拷贝/">12_深浅拷贝</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/13_异常处理/">13_异常处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/14_基本运算符/">14_基本运算符</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第3章_python基础/15_流程控制/">15_流程控制</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第4章 文件处理</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第4章_文件处理/01_字符编码/">01_字符编码</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第4章_文件处理/02_python2与python3字符编码的区别/">02_python2与python3字符编码的区别</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第4章_文件处理/03_文件操作/">03_文件操作</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第5章 函数基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第5章_函数基础/01_函数的定义/">01_函数的定义</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第5章_函数基础/02_函数的调用、函数的返回值/">02_函数的调用、函数的返回值</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第5章_函数基础/03_函数的参数/">03_函数的参数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第5章_函数基础/04_函数的对象、函数的嵌套/">04_函数的对象、函数的嵌套</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第5章_函数基础/05_名称空间与作用域/">05_名称空间与作用域</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第6章 函数进阶操作</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/01_闭包函数/">01_闭包函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/02_装饰器/">02_装饰器</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/03_迭代器/">03_迭代器</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/04_三元表达式/">04_三元表达式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/05_列表推导式、字典生成式、生成器/">05_列表推导式、字典生成式、生成器</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/06_函数递归/">06_函数递归</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/07_匿名函数/">07_匿名函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第6章_函数进阶操作/08_内置函数/">08_内置函数</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第7章 模块基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第7章_模块基础/01_python模块介绍/">01_python模块介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第7章_模块基础/02_循环导入问题/">02_循环导入问题</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第7章_模块基础/03_python的包/">03_python的包</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第8章 python常用模块</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/01_os模块/">01_os模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/02_sys模块/">02_sys模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/03_json和pickle模块/">03_json和pickle模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/04_logging模块/">04_logging模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/05_time模块/">05_time模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/06_datetime模块/">06_datetime模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/07_random模块/">07_random模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/08_typing模块/">08_typing模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/09_hashlib和hmac模块/">09_hashlib和hmac模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/10_re模块/">10_re模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/11_数据分析常用的三个模块/">11_数据分析常用的三个模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/12_jiieba库、wordcloud词云/">12_jiieba库、wordcloud词云</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/13_exec模块/">13_exec模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第8章_python常用模块/14 subprocess模块/">14 subprocess模块</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第9章_面向对象基础</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第9章_面向对象基础/01_面向对象编程介绍/">01_面向对象编程介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第9章_面向对象基础/02_类和对象/">02_类和对象</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第9章_面向对象基础/03_对象和类的查找顺序/">03_对象和类的查找顺序</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第9章_面向对象基础/04_对象的绑定方法/">04_对象的绑定方法</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第10章_面向对象进阶</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/01_类的继承/">01_类的继承</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/02_类的派生/">02_类的派生</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/03_菱形继承问题/">03_菱形继承问题</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/04_类的组合/">04_类的组合</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/05_类的封装/">05_类的封装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/06_property/">06_property</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/07_类的多态/">07_类的多态</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/08_类的绑定方法和非绑定方法/">08_类的绑定方法和非绑定方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第10章_面向对象进阶/09_isinstance和issubclass/">09_isinstance和issubclass</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第11章_面向对象高级特性</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第11章_面向对象高级特性/01_反射/">01_反射</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第11章_面向对象高级特性/02_类的魔法方法/">02_类的魔法方法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第11章_面向对象高级特性/03_元类/">03_元类</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第11章_面向对象高级特性/04_单例模式/">04_单例模式</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第12章_网络编程</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/01_软件开发架构/">01_软件开发架构</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/02_OSI七层模型/">02_OSI七层模型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/03_TCP三次握手，四次挥手/">03_TCP三次握手，四次挥手</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/04_基于TCP协议的socket套接字编程/">04_基于TCP协议的socket套接字编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/05_TCP粘包问题、解决粘包问题/">05_TCP粘包问题、解决粘包问题</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/06_基于UDP协议的socket套接字编程/">06_基于UDP协议的socket套接字编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/07_socketserver/">07_socketserver</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第12章_网络编程/08_网络编程小结/">08_网络编程小结</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第13章_并发编程</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/01_操作系统发展史/">01_操作系统发展史</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/02_进程基础/">02_进程基础</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/03_同步异步阻塞非阻塞/">03_同步异步阻塞非阻塞</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/04_进程特性/">04_进程特性</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/05_TCP协议套接字，服务端实现接收客户端的连接并发/">05_TCP协议套接字，服务端实现接收客户端的连接并发</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/06_进程互斥锁/">06_进程互斥锁</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/07_进程队列/">07_进程队列</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/08_进程间通信/">08_进程间通信</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/09_生产者与消费者/">09_生产者与消费者</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/10_线程/">10_线程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/11_GIL全局解释器锁/">11_GIL全局解释器锁</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/12_多线程应用/">12_多线程应用</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/13_死锁和递归锁/">13_死锁和递归锁</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/14_信号量、线程队列/">14_信号量、线程队列</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/15_Event事件/">15_Event事件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/16_进程池与线程池/">16_进程池与线程池</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/17_协程/">17_协程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/18_Gevent模块/">18_Gevent模块</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/19_TCP服务端socket套接字实现协程/">19_TCP服务端socket套接字实现协程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../第13章_并发编程/20_并发编程小结/">20_并发编程小结</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第14章_常用数据库</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <span class="caption-text">MySQL数据库</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/00_MySQL初始/">00_MySQL初始</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/01_MySQL字符集/">01_MySQL字符集</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/02_MySQL对数据库、表的操作/">02_MySQL对数据库、表的操作</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/03_MySQL操作数据行/">03_MySQL操作数据行</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/04_单表查询/">04_单表查询</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/05_多表查询/">05_多表查询</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/06_python操作MySQL/">06_python操作MySQL</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/07_MySQL索引/">07_MySQL索引</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/08_explain查询性能分析/">08_explain查询性能分析</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/09_慢查询日志/">09_慢查询日志</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/10_MySQL高级特性/">10_MySQL高级特性</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/11_数据库备份/">11_数据库备份</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/MySQL数据库/12_数据库表设计/">12_数据库表设计</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">PostgreSQL数据库</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/PostgreSQL数据库/postgresql安装及简单使用/">postgresql安装及简单使用</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Redis数据库</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/01_Redis简介及安装/">01_Redis简介及安装</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/02_redis数据类型操作/">02_redis数据类型操作</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/03_redis系统级命令/">03_redis系统级命令</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/04_redis杂谈/">04_redis杂谈</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/05_Redis操作以及python操作redis/">05_Redis操作以及python操作redis</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/06_redis系列总结/">06_redis系列总结</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="../../第14章_常用数据库/Redis数据库/07_redis面试题/">07_redis面试题</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">第15章_前端</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../01_前端之html基础/">01_前端之html基础</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../02_html之form表单/">02_html之form表单</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../03_前端之css(一)/">03_前端之css(一)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../04_前端之css(二)/">04_前端之css(二)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../05_前端之js/">05_前端之js</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../06_前端基础之BOM和DOM/">06_前端基础之BOM和DOM</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">07_jQuery</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#jquery">jQuery介绍</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#jquery_1">jQuery引入方式</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#jquery_2">jQuery基础语法</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_1">查找标签</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#_2">基本选择器</a></li>
-        
-            <li><a class="toctree-l4" href="#_7">层级选择器</a></li>
-        
-            <li><a class="toctree-l4" href="#_8">基本筛选器</a></li>
-        
-            <li><a class="toctree-l4" href="#_9">属性选择器</a></li>
-        
-            <li><a class="toctree-l4" href="#_10">表单筛选器</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#_11">筛选器方法</a></li>
-    
-
-    <li class="toctree-l3"><a href="#_12">操作标签</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#_13">样式操作</a></li>
-        
-            <li><a class="toctree-l4" href="#_14">位置操作</a></li>
-        
-            <li><a class="toctree-l4" href="#_15">边框尺寸</a></li>
-        
-            <li><a class="toctree-l4" href="#_16">文本操作</a></li>
-        
-            <li><a class="toctree-l4" href="#_17">属性操作</a></li>
-        
-            <li><a class="toctree-l4" href="#_18">文档处理</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#_25">事件</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#_26">常用事件</a></li>
-        
-            <li><a class="toctree-l4" href="#jquery_3">jQuery事件绑定</a></li>
-        
-            <li><a class="toctree-l4" href="#_27">阻止后续事件执行</a></li>
-        
-            <li><a class="toctree-l4" href="#_28">事件冒泡</a></li>
-        
-            <li><a class="toctree-l4" href="#_29">页面载入</a></li>
-        
-            <li><a class="toctree-l4" href="#_30">事件委托</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#_31">动画效果</a></li>
-    
-
-    <li class="toctree-l3"><a href="#each">each</a></li>
-    
-
-    <li class="toctree-l3"><a href="#data">.data()</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../08_前端之Bootstrap基础/">08_前端之Bootstrap基础</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">python web开发知识整理</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>第15章_前端 &raquo;</li>
-        
-      
-    
-    <li>07_jQuery</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/setcreed/python-web-dev/edit/master/docs/第15章_前端/07_jQuery.md"> Edit on python-web-dev</a>
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              python web开发知识整理
+            </span>
+            <span class="md-header-nav__topic">
               
-                <h1 id="jquery">jQuery介绍</h1>
+                07_jQuery
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/setcreed/python-web-dev/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    python-web-dev
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="python web开发知识整理" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    python web开发知识整理
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/setcreed/python-web-dev/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    python-web-dev
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      第1章 计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        第1章 计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC1%E7%AB%A0_%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/01_markdown%E6%96%87%E6%A1%A3%E7%9A%84%E7%BC%96%E5%86%99/" title="01_markdown文档的编写" class="md-nav__link">
+      01_markdown文档的编写
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC1%E7%AB%A0_%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/02_%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" title="02_计算机基础" class="md-nav__link">
+      02_计算机基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      第2章 python解释器和集成环境
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        第2章 python解释器和集成环境
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC2%E7%AB%A0_python%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/01_python%E4%BB%8B%E7%BB%8D/" title="01_python介绍" class="md-nav__link">
+      01_python介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC2%E7%AB%A0_python%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/02_python%E8%A7%A3%E9%87%8A%E5%99%A8pip%E6%BA%90%E4%BF%AE%E6%94%B9/" title="02_python解释器pip源修改" class="md-nav__link">
+      02_python解释器pip源修改
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC2%E7%AB%A0_python%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/03_pycharm%E4%BB%8B%E7%BB%8D/" title="03_pycharm介绍" class="md-nav__link">
+      03_pycharm介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      第3章 python基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        第3章 python基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/01_%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F/" title="01_变量与常量" class="md-nav__link">
+      01_变量与常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/02_%E6%B3%A8%E9%87%8A/" title="02_注释" class="md-nav__link">
+      02_注释
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/03_python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="03_python内存管理" class="md-nav__link">
+      03_python内存管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/04_%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="04_基本数据类型" class="md-nav__link">
+      04_基本数据类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/05_%E8%8A%B1%E5%BC%8F%E8%B5%8B%E5%80%BC%EF%BC%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9%E3%80%81%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92%EF%BC%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/" title="05_花式赋值，解压缩、用户交互，格式化输出" class="md-nav__link">
+      05_花式赋值，解压缩、用户交互，格式化输出
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/06_%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="06_数字类型常用方法" class="md-nav__link">
+      06_数字类型常用方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/07_%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="07_字符串类型常用方法" class="md-nav__link">
+      07_字符串类型常用方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/08_%E5%88%97%E8%A1%A8%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="08_列表常用方法" class="md-nav__link">
+      08_列表常用方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/09_%E5%85%83%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="09_元组常用方法" class="md-nav__link">
+      09_元组常用方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/10_%E5%AD%97%E5%85%B8%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="10_字典常用方法" class="md-nav__link">
+      10_字典常用方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/11_%E9%9B%86%E5%90%88%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="11_集合常用方法" class="md-nav__link">
+      11_集合常用方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/12_%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" title="12_深浅拷贝" class="md-nav__link">
+      12_深浅拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/13_%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" title="13_异常处理" class="md-nav__link">
+      13_异常处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/14_%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6/" title="14_基本运算符" class="md-nav__link">
+      14_基本运算符
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC3%E7%AB%A0_python%E5%9F%BA%E7%A1%80/15_%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" title="15_流程控制" class="md-nav__link">
+      15_流程控制
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      第4章 文件处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        第4章 文件处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC4%E7%AB%A0_%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/01_%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" title="01_字符编码" class="md-nav__link">
+      01_字符编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC4%E7%AB%A0_%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/02_python2%E4%B8%8Epython3%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E7%9A%84%E5%8C%BA%E5%88%AB/" title="02_python2与python3字符编码的区别" class="md-nav__link">
+      02_python2与python3字符编码的区别
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC4%E7%AB%A0_%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/03_%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title="03_文件操作" class="md-nav__link">
+      03_文件操作
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      第5章 函数基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        第5章 函数基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC5%E7%AB%A0_%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/01_%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89/" title="01_函数的定义" class="md-nav__link">
+      01_函数的定义
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC5%E7%AB%A0_%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/02_%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC/" title="02_函数的调用、函数的返回值" class="md-nav__link">
+      02_函数的调用、函数的返回值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC5%E7%AB%A0_%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/03_%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/" title="03_函数的参数" class="md-nav__link">
+      03_函数的参数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC5%E7%AB%A0_%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/04_%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%B9%E8%B1%A1%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E5%B5%8C%E5%A5%97/" title="04_函数的对象、函数的嵌套" class="md-nav__link">
+      04_函数的对象、函数的嵌套
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC5%E7%AB%A0_%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/05_%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F/" title="05_名称空间与作用域" class="md-nav__link">
+      05_名称空间与作用域
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      第6章 函数进阶操作
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        第6章 函数进阶操作
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/01_%E9%97%AD%E5%8C%85%E5%87%BD%E6%95%B0/" title="01_闭包函数" class="md-nav__link">
+      01_闭包函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/02_%E8%A3%85%E9%A5%B0%E5%99%A8/" title="02_装饰器" class="md-nav__link">
+      02_装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/03_%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="03_迭代器" class="md-nav__link">
+      03_迭代器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/04_%E4%B8%89%E5%85%83%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="04_三元表达式" class="md-nav__link">
+      04_三元表达式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/05_%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%E3%80%81%E5%AD%97%E5%85%B8%E7%94%9F%E6%88%90%E5%BC%8F%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8/" title="05_列表推导式、字典生成式、生成器" class="md-nav__link">
+      05_列表推导式、字典生成式、生成器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/06_%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92/" title="06_函数递归" class="md-nav__link">
+      06_函数递归
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/07_%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/" title="07_匿名函数" class="md-nav__link">
+      07_匿名函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC6%E7%AB%A0_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/08_%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" title="08_内置函数" class="md-nav__link">
+      08_内置函数
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      第7章 模块基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        第7章 模块基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC7%E7%AB%A0_%E6%A8%A1%E5%9D%97%E5%9F%BA%E7%A1%80/01_python%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/" title="01_python模块介绍" class="md-nav__link">
+      01_python模块介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC7%E7%AB%A0_%E6%A8%A1%E5%9D%97%E5%9F%BA%E7%A1%80/02_%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%85%A5%E9%97%AE%E9%A2%98/" title="02_循环导入问题" class="md-nav__link">
+      02_循环导入问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC7%E7%AB%A0_%E6%A8%A1%E5%9D%97%E5%9F%BA%E7%A1%80/03_python%E7%9A%84%E5%8C%85/" title="03_python的包" class="md-nav__link">
+      03_python的包
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      第8章 python常用模块
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        第8章 python常用模块
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/01_os%E6%A8%A1%E5%9D%97/" title="01_os模块" class="md-nav__link">
+      01_os模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/02_sys%E6%A8%A1%E5%9D%97/" title="02_sys模块" class="md-nav__link">
+      02_sys模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/03_json%E5%92%8Cpickle%E6%A8%A1%E5%9D%97/" title="03_json和pickle模块" class="md-nav__link">
+      03_json和pickle模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/04_logging%E6%A8%A1%E5%9D%97/" title="04_logging模块" class="md-nav__link">
+      04_logging模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/05_time%E6%A8%A1%E5%9D%97/" title="05_time模块" class="md-nav__link">
+      05_time模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/06_datetime%E6%A8%A1%E5%9D%97/" title="06_datetime模块" class="md-nav__link">
+      06_datetime模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/07_random%E6%A8%A1%E5%9D%97/" title="07_random模块" class="md-nav__link">
+      07_random模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/08_typing%E6%A8%A1%E5%9D%97/" title="08_typing模块" class="md-nav__link">
+      08_typing模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/09_hashlib%E5%92%8Chmac%E6%A8%A1%E5%9D%97/" title="09_hashlib和hmac模块" class="md-nav__link">
+      09_hashlib和hmac模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/10_re%E6%A8%A1%E5%9D%97/" title="10_re模块" class="md-nav__link">
+      10_re模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/11_%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A8%A1%E5%9D%97/" title="11_数据分析常用的三个模块" class="md-nav__link">
+      11_数据分析常用的三个模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/12_jiieba%E5%BA%93%E3%80%81wordcloud%E8%AF%8D%E4%BA%91/" title="12_jiieba库、wordcloud词云" class="md-nav__link">
+      12_jiieba库、wordcloud词云
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/13_exec%E6%A8%A1%E5%9D%97/" title="13_exec模块" class="md-nav__link">
+      13_exec模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC8%E7%AB%A0_python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/14%20subprocess%E6%A8%A1%E5%9D%97/" title="14 subprocess模块" class="md-nav__link">
+      14 subprocess模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      第9章_面向对象基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        第9章_面向对象基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC9%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/01_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%BB%8B%E7%BB%8D/" title="01_面向对象编程介绍" class="md-nav__link">
+      01_面向对象编程介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC9%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/02_%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" title="02_类和对象" class="md-nav__link">
+      02_类和对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC9%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/03_%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%E7%9A%84%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F/" title="03_对象和类的查找顺序" class="md-nav__link">
+      03_对象和类的查找顺序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC9%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/04_%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95/" title="04_对象的绑定方法" class="md-nav__link">
+      04_对象的绑定方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      第10章_面向对象进阶
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        第10章_面向对象进阶
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/01_%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" title="01_类的继承" class="md-nav__link">
+      01_类的继承
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/02_%E7%B1%BB%E7%9A%84%E6%B4%BE%E7%94%9F/" title="02_类的派生" class="md-nav__link">
+      02_类的派生
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/03_%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/" title="03_菱形继承问题" class="md-nav__link">
+      03_菱形继承问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/04_%E7%B1%BB%E7%9A%84%E7%BB%84%E5%90%88/" title="04_类的组合" class="md-nav__link">
+      04_类的组合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/05_%E7%B1%BB%E7%9A%84%E5%B0%81%E8%A3%85/" title="05_类的封装" class="md-nav__link">
+      05_类的封装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/06_property/" title="06_property" class="md-nav__link">
+      06_property
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/07_%E7%B1%BB%E7%9A%84%E5%A4%9A%E6%80%81/" title="07_类的多态" class="md-nav__link">
+      07_类的多态
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/08_%E7%B1%BB%E7%9A%84%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95%E5%92%8C%E9%9D%9E%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95/" title="08_类的绑定方法和非绑定方法" class="md-nav__link">
+      08_类的绑定方法和非绑定方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC10%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/09_isinstance%E5%92%8Cissubclass/" title="09_isinstance和issubclass" class="md-nav__link">
+      09_isinstance和issubclass
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      第11章_面向对象高级特性
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        第11章_面向对象高级特性
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC11%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/01_%E5%8F%8D%E5%B0%84/" title="01_反射" class="md-nav__link">
+      01_反射
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC11%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/02_%E7%B1%BB%E7%9A%84%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/" title="02_类的魔法方法" class="md-nav__link">
+      02_类的魔法方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC11%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/03_%E5%85%83%E7%B1%BB/" title="03_元类" class="md-nav__link">
+      03_元类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC11%E7%AB%A0_%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/04_%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" title="04_单例模式" class="md-nav__link">
+      04_单例模式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      第12章_网络编程
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        第12章_网络编程
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/01_%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%9E%B6%E6%9E%84/" title="01_软件开发架构" class="md-nav__link">
+      01_软件开发架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/02_OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B/" title="02_OSI七层模型" class="md-nav__link">
+      02_OSI七层模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/03_TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="03_TCP三次握手，四次挥手" class="md-nav__link">
+      03_TCP三次握手，四次挥手
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/04_%E5%9F%BA%E4%BA%8ETCP%E5%8D%8F%E8%AE%AE%E7%9A%84socket%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B/" title="04_基于TCP协议的socket套接字编程" class="md-nav__link">
+      04_基于TCP协议的socket套接字编程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/05_TCP%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98%E3%80%81%E8%A7%A3%E5%86%B3%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/" title="05_TCP粘包问题、解决粘包问题" class="md-nav__link">
+      05_TCP粘包问题、解决粘包问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/06_%E5%9F%BA%E4%BA%8EUDP%E5%8D%8F%E8%AE%AE%E7%9A%84socket%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B/" title="06_基于UDP协议的socket套接字编程" class="md-nav__link">
+      06_基于UDP协议的socket套接字编程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/07_socketserver/" title="07_socketserver" class="md-nav__link">
+      07_socketserver
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC12%E7%AB%A0_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/08_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%B0%8F%E7%BB%93/" title="08_网络编程小结" class="md-nav__link">
+      08_网络编程小结
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      第13章_并发编程
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        第13章_并发编程
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/01_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E5%8F%B2/" title="01_操作系统发展史" class="md-nav__link">
+      01_操作系统发展史
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/02_%E8%BF%9B%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="02_进程基础" class="md-nav__link">
+      02_进程基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/03_%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E/" title="03_同步异步阻塞非阻塞" class="md-nav__link">
+      03_同步异步阻塞非阻塞
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/04_%E8%BF%9B%E7%A8%8B%E7%89%B9%E6%80%A7/" title="04_进程特性" class="md-nav__link">
+      04_进程特性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/05_TCP%E5%8D%8F%E8%AE%AE%E5%A5%97%E6%8E%A5%E5%AD%97%EF%BC%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%9E%E7%8E%B0%E6%8E%A5%E6%94%B6%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%B9%B6%E5%8F%91/" title="05_TCP协议套接字，服务端实现接收客户端的连接并发" class="md-nav__link">
+      05_TCP协议套接字，服务端实现接收客户端的连接并发
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/06_%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E9%94%81/" title="06_进程互斥锁" class="md-nav__link">
+      06_进程互斥锁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/07_%E8%BF%9B%E7%A8%8B%E9%98%9F%E5%88%97/" title="07_进程队列" class="md-nav__link">
+      07_进程队列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/08_%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" title="08_进程间通信" class="md-nav__link">
+      08_进程间通信
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/09_%E7%94%9F%E4%BA%A7%E8%80%85%E4%B8%8E%E6%B6%88%E8%B4%B9%E8%80%85/" title="09_生产者与消费者" class="md-nav__link">
+      09_生产者与消费者
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/10_%E7%BA%BF%E7%A8%8B/" title="10_线程" class="md-nav__link">
+      10_线程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/11_GIL%E5%85%A8%E5%B1%80%E8%A7%A3%E9%87%8A%E5%99%A8%E9%94%81/" title="11_GIL全局解释器锁" class="md-nav__link">
+      11_GIL全局解释器锁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/12_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BA%94%E7%94%A8/" title="12_多线程应用" class="md-nav__link">
+      12_多线程应用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/13_%E6%AD%BB%E9%94%81%E5%92%8C%E9%80%92%E5%BD%92%E9%94%81/" title="13_死锁和递归锁" class="md-nav__link">
+      13_死锁和递归锁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/14_%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E7%BA%BF%E7%A8%8B%E9%98%9F%E5%88%97/" title="14_信号量、线程队列" class="md-nav__link">
+      14_信号量、线程队列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/15_Event%E4%BA%8B%E4%BB%B6/" title="15_Event事件" class="md-nav__link">
+      15_Event事件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/16_%E8%BF%9B%E7%A8%8B%E6%B1%A0%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="16_进程池与线程池" class="md-nav__link">
+      16_进程池与线程池
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/17_%E5%8D%8F%E7%A8%8B/" title="17_协程" class="md-nav__link">
+      17_协程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/18_Gevent%E6%A8%A1%E5%9D%97/" title="18_Gevent模块" class="md-nav__link">
+      18_Gevent模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/19_TCP%E6%9C%8D%E5%8A%A1%E7%AB%AFsocket%E5%A5%97%E6%8E%A5%E5%AD%97%E5%AE%9E%E7%8E%B0%E5%8D%8F%E7%A8%8B/" title="19_TCP服务端socket套接字实现协程" class="md-nav__link">
+      19_TCP服务端socket套接字实现协程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC13%E7%AB%A0_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/20_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%B0%8F%E7%BB%93/" title="20_并发编程小结" class="md-nav__link">
+      20_并发编程小结
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      第14章_常用数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        第14章_常用数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1" type="checkbox" id="nav-15-1">
+    
+    <label class="md-nav__link" for="nav-15-1">
+      MySQL数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-15-1">
+        MySQL数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/00_MySQL%E5%88%9D%E5%A7%8B/" title="00_MySQL初始" class="md-nav__link">
+      00_MySQL初始
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/01_MySQL%E5%AD%97%E7%AC%A6%E9%9B%86/" title="01_MySQL字符集" class="md-nav__link">
+      01_MySQL字符集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/02_MySQL%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C/" title="02_MySQL对数据库、表的操作" class="md-nav__link">
+      02_MySQL对数据库、表的操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/03_MySQL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E8%A1%8C/" title="03_MySQL操作数据行" class="md-nav__link">
+      03_MySQL操作数据行
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/04_%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/" title="04_单表查询" class="md-nav__link">
+      04_单表查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/05_%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" title="05_多表查询" class="md-nav__link">
+      05_多表查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/06_python%E6%93%8D%E4%BD%9CMySQL/" title="06_python操作MySQL" class="md-nav__link">
+      06_python操作MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/07_MySQL%E7%B4%A2%E5%BC%95/" title="07_MySQL索引" class="md-nav__link">
+      07_MySQL索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/08_explain%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" title="08_explain查询性能分析" class="md-nav__link">
+      08_explain查询性能分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/09_%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/" title="09_慢查询日志" class="md-nav__link">
+      09_慢查询日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/10_MySQL%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/" title="10_MySQL高级特性" class="md-nav__link">
+      10_MySQL高级特性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/11_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/" title="11_数据库备份" class="md-nav__link">
+      11_数据库备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/12_%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E8%AE%BE%E8%AE%A1/" title="12_数据库表设计" class="md-nav__link">
+      12_数据库表设计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-2" type="checkbox" id="nav-15-2">
+    
+    <label class="md-nav__link" for="nav-15-2">
+      PostgreSQL数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-15-2">
+        PostgreSQL数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL%E6%95%B0%E6%8D%AE%E5%BA%93/postgresql%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="postgresql安装及简单使用" class="md-nav__link">
+      postgresql安装及简单使用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-3" type="checkbox" id="nav-15-3">
+    
+    <label class="md-nav__link" for="nav-15-3">
+      Redis数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-15-3">
+        Redis数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/01_Redis%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%AE%89%E8%A3%85/" title="01_Redis简介及安装" class="md-nav__link">
+      01_Redis简介及安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/02_redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%93%8D%E4%BD%9C/" title="02_redis数据类型操作" class="md-nav__link">
+      02_redis数据类型操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/03_redis%E7%B3%BB%E7%BB%9F%E7%BA%A7%E5%91%BD%E4%BB%A4/" title="03_redis系统级命令" class="md-nav__link">
+      03_redis系统级命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/04_redis%E6%9D%82%E8%B0%88/" title="04_redis杂谈" class="md-nav__link">
+      04_redis杂谈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/05_Redis%E6%93%8D%E4%BD%9C%E4%BB%A5%E5%8F%8Apython%E6%93%8D%E4%BD%9Credis/" title="05_Redis操作以及python操作redis" class="md-nav__link">
+      05_Redis操作以及python操作redis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/06_redis%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/" title="06_redis系列总结" class="md-nav__link">
+      06_redis系列总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/07_redis%E9%9D%A2%E8%AF%95%E9%A2%98/" title="07_redis面试题" class="md-nav__link">
+      07_redis面试题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-4" type="checkbox" id="nav-15-4">
+    
+    <label class="md-nav__link" for="nav-15-4">
+      MongoDB数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-15-4">
+        MongoDB数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC14%E7%AB%A0_%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB%E6%95%B0%E6%8D%AE%E5%BA%93/NoSQL%E6%A6%82%E8%A7%88%E4%B8%8EMongdb/" title="MangoDB简单使用" class="md-nav__link">
+      MangoDB简单使用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16" checked>
+    
+    <label class="md-nav__link" for="nav-16">
+      第15章_前端基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        第15章_前端基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01_%E5%89%8D%E7%AB%AF%E4%B9%8Bhtml%E5%9F%BA%E7%A1%80/" title="01_前端之html基础" class="md-nav__link">
+      01_前端之html基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02_html%E4%B9%8Bform%E8%A1%A8%E5%8D%95/" title="02_html之form表单" class="md-nav__link">
+      02_html之form表单
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03_%E5%89%8D%E7%AB%AF%E4%B9%8Bcss%28%E4%B8%80%29/" title="03_前端之css(一)" class="md-nav__link">
+      03_前端之css(一)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04_%E5%89%8D%E7%AB%AF%E4%B9%8Bcss%28%E4%BA%8C%29/" title="04_前端之css(二)" class="md-nav__link">
+      04_前端之css(二)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05_%E5%89%8D%E7%AB%AF%E4%B9%8Bjs/" title="05_前端之js" class="md-nav__link">
+      05_前端之js
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06_%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E4%B9%8BBOM%E5%92%8CDOM/" title="06_前端基础之BOM和DOM" class="md-nav__link">
+      06_前端基础之BOM和DOM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        07_jQuery
+      </label>
+    
+    <a href="./" title="07_jQuery" class="md-nav__link md-nav__link--active">
+      07_jQuery
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jquery_1" class="md-nav__link">
+    jQuery引入方式
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08_%E5%89%8D%E7%AB%AF%E4%B9%8BBootstrap%E5%9F%BA%E7%A1%80/" title="08_前端之Bootstrap基础" class="md-nav__link">
+      08_前端之Bootstrap基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      第16章_前端框架之vue
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        第16章_前端框架之vue
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC16%E7%AB%A0_%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8Bvue/01_vue%E5%9F%BA%E7%A1%80/" title="01_vue基础" class="md-nav__link">
+      01_vue基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC16%E7%AB%A0_%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8Bvue/02_vue%E6%8C%87%E4%BB%A4/" title="02_vue指令" class="md-nav__link">
+      02_vue指令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC16%E7%AB%A0_%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8Bvue/03_vue%E7%BB%84%E4%BB%B6/" title="03_vue组件" class="md-nav__link">
+      03_vue组件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC16%E7%AB%A0_%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8Bvue/04_vue%E9%A1%B9%E7%9B%AE%E3%80%81%E8%B7%AF%E7%94%B1/" title="04_vue项目、路由" class="md-nav__link">
+      04_vue项目、路由
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E7%AC%AC16%E7%AB%A0_%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8Bvue/05_vue%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/" title="05_vue项目安装插件配置" class="md-nav__link">
+      05_vue项目安装插件配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jquery_1" class="md-nav__link">
+    jQuery引入方式
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/setcreed/python-web-dev/edit/master/docs/第15章_前端/07_jQuery.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="jquery">jQuery介绍<a class="headerlink" href="#jquery" title="Permanent link">&para;</a></h1>
 <p>jQuery是一个轻量级、兼容多浏览器的JavaScript库，能使用户更方便地处理HTML文档，实现动画效果、方便地进行Ajax交互。</p>
-<h2 id="jquery_1">jQuery引入方式</h2>
+<h2 id="jquery_1">jQuery引入方式<a class="headerlink" href="#jquery_1" title="Permanent link">&para;</a></h2>
 <p>一种是引入本地的jQuery文件，另一种是引用jQuery的cdn</p>
-<pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h1 id="jquery_2">jQuery基础语法</h1>
-<pre><code class="js">$(选择器).action()
-</code></pre>
+<h1 id="jquery_2">jQuery基础语法<a class="headerlink" href="#jquery_2" title="Permanent link">&para;</a></h1>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nx">选择器</span><span class="p">).</span><span class="nx">action</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 
-<h1 id="_1">查找标签</h1>
-<h2 id="_2">基本选择器</h2>
-<h3 id="id">id选择器</h3>
-<pre><code class="js">$('#id')
-</code></pre>
+<h1 id="_1">查找标签<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">基本选择器<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="id">id选择器<a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#id&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_3">标签选择器</h3>
-<pre><code class="js">$('div')
-</code></pre>
+<h3 id="_3">标签选择器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="class">class选择器</h3>
-<pre><code class="js">$('.c1')
-</code></pre>
+<h3 id="class">class选择器<a class="headerlink" href="#class" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_4">组合选择器</h3>
-<pre><code class="js">$('#d1, .c1, p')
-</code></pre>
+<h3 id="_4">组合选择器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#d1, .c1, p&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_5">所有元素选择器</h3>
-<pre><code class="js">$('*')    // 选择所有的标签
-</code></pre>
+<h3 id="_5">所有元素选择器<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>    <span class="c1">// 选择所有的标签</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_6">配合使用</h3>
-<pre><code class="js">$(&quot;div.c1&quot;)  // 找到有c1 class类的div标签
-</code></pre>
+<h3 id="_6">配合使用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div.c1&quot;</span><span class="p">)</span>  <span class="c1">// 找到有c1 class类的div标签</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_7">层级选择器</h2>
-<pre><code class="js">$(&quot;div span&quot;)    // div 的所有span后代
-$(&quot;div &gt; span&quot;)   // div的所有儿子span
-$(&quot;div + span&quot;)    // 毗邻 div紧挨着的span
-$(&quot;div ~ span&quot;)    // div同级下面的所有span
-</code></pre>
+<h2 id="_7">层级选择器<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div span&quot;</span><span class="p">)</span>    <span class="c1">// div 的所有span后代</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div &gt; span&quot;</span><span class="p">)</span>   <span class="c1">// div的所有儿子span</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div + span&quot;</span><span class="p">)</span>    <span class="c1">// 毗邻 div紧挨着的span</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div ~ span&quot;</span><span class="p">)</span>    <span class="c1">// div同级下面的所有span</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_8">基本筛选器</h2>
-<pre><code class="js">:first // 第一个
-:last // 最后一个
-:eq(index)// 索引等于index的那个元素
-:even // 匹配所有索引值为偶数的元素，从 0 开始计数
-:odd // 匹配所有索引值为奇数的元素，从 0 开始计数
-:gt(index)// 匹配所有大于给定索引值的元素
-:lt(index)// 匹配所有小于给定索引值的元素
-:not(元素选择器)// 移除所有满足not条件的标签
-:has(元素选择器)// 选取所有包含一个或多个标签在其内的标签(指的是从后代元素找)
-</code></pre>
+<h2 id="_8">基本筛选器<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="o">:</span><span class="nx">first</span> <span class="c1">// 第一个</span>
+<span class="o">:</span><span class="nx">last</span> <span class="c1">// 最后一个</span>
+<span class="o">:</span><span class="nx">eq</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span><span class="c1">// 索引等于index的那个元素</span>
+<span class="o">:</span><span class="nx">even</span> <span class="c1">// 匹配所有索引值为偶数的元素，从 0 开始计数</span>
+<span class="o">:</span><span class="nx">odd</span> <span class="c1">// 匹配所有索引值为奇数的元素，从 0 开始计数</span>
+<span class="o">:</span><span class="nx">gt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span><span class="c1">// 匹配所有大于给定索引值的元素</span>
+<span class="o">:</span><span class="nx">lt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span><span class="c1">// 匹配所有小于给定索引值的元素</span>
+<span class="o">:</span><span class="nx">not</span><span class="p">(</span><span class="nx">元素选择器</span><span class="p">)</span><span class="c1">// 移除所有满足not条件的标签</span>
+<span class="o">:</span><span class="nx">has</span><span class="p">(</span><span class="nx">元素选择器</span><span class="p">)</span><span class="c1">// 选取所有包含一个或多个标签在其内的标签(指的是从后代元素找)</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209102935.png" /></p>
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103004.png" /></p>
 <p>例子：</p>
-<pre><code class="js">$('ul li:first')     //找到ul标签下第一个li标签
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul li:first&#39;</span><span class="p">)</span>     <span class="c1">//找到ul标签下第一个li标签</span>
 
-$(&quot;div:has(h1)&quot;)     // 找到所有后代中有h1标签的div标签
-$(&quot;div:has(.c1)&quot;)     // 找到所有后代中有c1样式类的div标签
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div:has(h1)&quot;</span><span class="p">)</span>     <span class="c1">// 找到所有后代中有h1标签的div标签</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div:has(.c1)&quot;</span><span class="p">)</span>     <span class="c1">// 找到所有后代中有c1样式类的div标签</span>
 
-$('div span:has(&quot;#d1&quot;)')    // 找到div所有后代中有的id为d1的span标签
-$('div span:not(&quot;#d1&quot;)')    // 找到div所有后代中有的id不为d1的span标签
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div span:has(&quot;#d1&quot;)&#39;</span><span class="p">)</span>    <span class="c1">// 找到div所有后代中有的id为d1的span标签</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div span:not(&quot;#d1&quot;)&#39;</span><span class="p">)</span>    <span class="c1">// 找到div所有后代中有的id不为d1的span标签</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_9">属性选择器</h2>
-<pre><code class="js">$('[username]')
-$('[username = &quot;cwz&quot;]')
-$('p[username = &quot;cwz&quot;]')
-</code></pre>
+<h2 id="_9">属性选择器<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[username]&#39;</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[username = &quot;cwz&quot;]&#39;</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p[username = &quot;cwz&quot;]&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103025.png" /></p>
-<h2 id="_10">表单筛选器</h2>
+<h2 id="_10">表单筛选器<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p><strong>:仅仅在表单选择器上使用，默认是在input框，type属性</strong></p>
-<pre><code>:text
-:password
-:file
-:radio
-:checkbox
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">:</span><span class="nb">text</span>
+<span class="p">:</span><span class="n">password</span>
+<span class="p">:</span><span class="n">file</span>
+<span class="p">:</span><span class="n">radio</span>
+<span class="p">:</span><span class="n">checkbox</span>
 
-:submit
-:reset
-:button
-</code></pre>
+<span class="p">:</span><span class="n">submit</span>
+<span class="p">:</span><span class="k">reset</span>
+<span class="p">:</span><span class="n">button</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103045.png" /></p>
 <p>补充知识点：</p>
-<pre><code class="html">&lt;!--novalidate 取消前端给你做的校验功能--&gt;
-&lt;form action=&quot;&quot; novalidate&gt;&lt;/form&gt;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">&lt;!--novalidate 取消前端给你做的校验功能--&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">novalidate</span><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>特殊：</p>
-<pre><code class="js">$(&quot;:checkbox&quot;)  // 找到所有的checkbox
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:checkbox&quot;</span><span class="p">)</span>  <span class="c1">// 找到所有的checkbox</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103137.png" /></p>
-<h1 id="_11">筛选器方法</h1>
+<h1 id="_11">筛选器方法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
 <p>下一个元素</p>
-<pre><code class="js">$(&quot;#id&quot;).next()
-$(&quot;#id&quot;).nextAll()    // 同级之下所有的
-$(&quot;#id&quot;).nextUntil(&quot;#i2&quot;)
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">next</span><span class="p">()</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">nextAll</span><span class="p">()</span>    <span class="c1">// 同级之下所有的</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">nextUntil</span><span class="p">(</span><span class="s2">&quot;#i2&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103200.png" /></p>
 <p>上一个元素</p>
-<pre><code class="js">$(&quot;#id&quot;).prev()
-$(&quot;#id&quot;).prevAll()
-$(&quot;#id&quot;).prevUntil(&quot;#i2&quot;)
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">prev</span><span class="p">()</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">prevAll</span><span class="p">()</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">prevUntil</span><span class="p">(</span><span class="s2">&quot;#i2&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>父亲元素</p>
-<pre><code class="js">$(&quot;#id&quot;).parent()
-$(&quot;#id&quot;).parents()  // 查找当前元素的所有的父辈元素
-$(&quot;#id&quot;).parentsUntil() // 查找当前元素的所有的父辈元素，直到遇到匹配的那个元素为止。
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">parent</span><span class="p">()</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">parents</span><span class="p">()</span>  <span class="c1">// 查找当前元素的所有的父辈元素</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">parentsUntil</span><span class="p">()</span> <span class="c1">// 查找当前元素的所有的父辈元素，直到遇到匹配的那个元素为止。</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103336.png" /></p>
 <p>儿子和兄弟元素：</p>
-<pre><code class="js">$(&quot;#id&quot;).children();// 儿子们
-$(&quot;#id&quot;).siblings();// 兄弟们
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">children</span><span class="p">();</span><span class="c1">// 儿子们</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#id&quot;</span><span class="p">).</span><span class="nx">siblings</span><span class="p">();</span><span class="c1">// 兄弟们</span>
+</code></pre></div>
+</td></tr></table>
 
-<pre><code class="js">.first() // 获取匹配的第一个元素
-.last() // 获取匹配的最后一个元素
-.not() // 从匹配元素的集合中删除与指定表达式匹配的元素
-.has() // 保留包含特定后代的元素，去掉那些不含有指定后代的元素。
-.eq() // 索引值等于指定值的元素
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">.</span><span class="nx">first</span><span class="p">()</span> <span class="c1">// 获取匹配的第一个元素</span>
+<span class="p">.</span><span class="nx">last</span><span class="p">()</span> <span class="c1">// 获取匹配的最后一个元素</span>
+<span class="p">.</span><span class="nx">not</span><span class="p">()</span> <span class="c1">// 从匹配元素的集合中删除与指定表达式匹配的元素</span>
+<span class="p">.</span><span class="nx">has</span><span class="p">()</span> <span class="c1">// 保留包含特定后代的元素，去掉那些不含有指定后代的元素。</span>
+<span class="p">.</span><span class="nx">eq</span><span class="p">()</span> <span class="c1">// 索引值等于指定值的元素</span>
 
 
-$('div span:first')   // 等价操作：
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div span:first&#39;</span><span class="p">)</span>   <span class="c1">// 等价操作：</span>
 
-$('div span').first()
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div span&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>filter筛选  </p>
-<pre><code class="js">$(&quot;div&quot;).filter(&quot;.c1&quot;)  // 从结果集中过滤出有c1样式类的
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="s2">&quot;.c1&quot;</span><span class="p">)</span>  <span class="c1">// 从结果集中过滤出有c1样式类的</span>
 
-// 等价于 $(&quot;div.c1&quot;)
-</code></pre>
+<span class="c1">// 等价于 $(&quot;div.c1&quot;)</span>
+</code></pre></div>
+</td></tr></table>
 
-<h1 id="_12">操作标签</h1>
-<h2 id="_13">样式操作</h2>
-<pre><code class="js">addClass();     // 增加类
-removeClass();    // 移除指定的类
-hasClass();      // 判断样式是否存在
-toggleClass();    // 有则移除，没有就增加
-</code></pre>
+<h1 id="_12">操作标签<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<h2 id="_13">样式操作<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">addClass</span><span class="p">();</span>     <span class="c1">// 增加类</span>
+<span class="nx">removeClass</span><span class="p">();</span>    <span class="c1">// 移除指定的类</span>
+<span class="nx">hasClass</span><span class="p">();</span>      <span class="c1">// 判断样式是否存在</span>
+<span class="nx">toggleClass</span><span class="p">();</span>    <span class="c1">// 有则移除，没有就增加</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>例子：开关灯实例</p>
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103408.png" /></p>
 <p>修改css有样式</p>
-<pre><code class="html">&lt;div&gt;
-    &lt;p&gt;11&lt;/p&gt;
-    &lt;p&gt;22&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>11<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>22<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>需求：把11所在标签变为红色，22所在标签变为绿色</p>
-<pre><code class="js">$('div').children().first().css('color','red').next().css('color','green')
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">children</span><span class="p">().</span><span class="nx">first</span><span class="p">().</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">).</span><span class="nx">next</span><span class="p">().</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_14">位置操作</h2>
-<pre><code class="js">offset()    // 获取匹配元素在当前窗口的相对偏移或设置元素位置
-position()   // 获取匹配元素相对父元素的偏移
-scrollTop()   // 获取匹配元素相对滚动条顶部的偏移
-scrollLeft()   // 获取匹配元素相对滚动条左侧的偏移
-</code></pre>
+<h2 id="_14">位置操作<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">offset</span><span class="p">()</span>    <span class="c1">// 获取匹配元素在当前窗口的相对偏移或设置元素位置</span>
+<span class="nx">position</span><span class="p">()</span>   <span class="c1">// 获取匹配元素相对父元素的偏移</span>
+<span class="nx">scrollTop</span><span class="p">()</span>   <span class="c1">// 获取匹配元素相对滚动条顶部的偏移</span>
+<span class="nx">scrollLeft</span><span class="p">()</span>   <span class="c1">// 获取匹配元素相对滚动条左侧的偏移</span>
+</code></pre></div>
+</td></tr></table>
 
-<pre><code class="js">$(window).scrollTop(0)   // 浏览器滚动条能快速回到顶部
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1">// 浏览器滚动条能快速回到顶部</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_15">边框尺寸</h2>
-<pre><code>height()
-width()
-innerHeight()
-innerWidth()
-outerHeight()
-outerWidth()
-</code></pre>
+<h2 id="_15">边框尺寸<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">height()</span>
+<span class="err">width()</span>
+<span class="err">innerHeight()</span>
+<span class="err">innerWidth()</span>
+<span class="err">outerHeight()</span>
+<span class="err">outerWidth()</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>示例：</p>
-<pre><code class="js">$('p').innerHeight()
-60.8
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">innerHeight</span><span class="p">()</span>
+<span class="mf">60.8</span>
 
-$('p').innerWidth()
-820
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">innerWidth</span><span class="p">()</span>
+<span class="mi">820</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_16">文本操作</h2>
-<pre><code class="js">$('div').text()    // 获取文本值
-$('div').html()    // 获取html代码
+<h2 id="_16">文本操作<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">()</span>    <span class="c1">// 获取文本值</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">()</span>    <span class="c1">// 获取html代码</span>
 
-$('div').text('有点意思')   // 设置文本值
-$('div').html('&lt;h1&gt;有点意思&lt;/h1&gt;')    // 设置所有匹配元素的html内容，识别内容里的标签元素
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;有点意思&#39;</span><span class="p">)</span>   <span class="c1">// 设置文本值</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;有点意思&lt;/h1&gt;&#39;</span><span class="p">)</span>    <span class="c1">// 设置所有匹配元素的html内容，识别内容里的标签元素</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103457.png" /></p>
 <p>获取用户输入的值</p>
-<pre><code class="js">$('input').val()
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
 
-$('input').val('阿什顿')   // 不加参数，获取值；加了参数，设置值
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">&#39;阿什顿&#39;</span><span class="p">)</span>   <span class="c1">// 不加参数，获取值；加了参数，设置值</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>自定义登录校验示例：</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;注册页面&lt;/h1&gt;
-&lt;form action=&quot;&quot;&gt;
-    &lt;p&gt;
-        username:&lt;input type=&quot;text&quot; id=&quot;d1&quot;&gt;
-        &lt;span style=&quot;color: red&quot; class=&quot;errors&quot;&gt;&lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-        password:&lt;input type=&quot;password&quot; id=&quot;d2&quot;&gt;
-        &lt;span style=&quot;color: red&quot; class=&quot;errors&quot;&gt;&lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-        &lt;input type=&quot;button&quot; value=&quot;按钮&quot; id=&quot;submit&quot;&gt;
-    &lt;/p&gt;
-&lt;/form&gt;
-&lt;script&gt;
-    var btnEle = $('#submit')[0];
-    btnEle.onclick = function () {
-        // 获取用户输入的用户名 密码
-        var userNameVal = $('#d1').val();
-        var passWordVal = $('#d2').val();
-        // 检验用户名和密码是否输入
-        if (userNameVal.length === 0) {
-            // 去对应的提示框中 展示错误信息
-            $('.errors').first().text('用户名不能为空')
-        }
-         if (passWordVal.length === 0) {
-            // 去对应的提示框中 展示错误信息
-            $('.errors').last().text('密码不能为空')
-        }
-    };
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>注册页面<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+        username:<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;d1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: red&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;errors&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+        password:<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;d2&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: red&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;errors&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;按钮&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">var</span> <span class="nx">btnEle</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#submit&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">btnEle</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 获取用户输入的用户名 密码</span>
+        <span class="kd">var</span> <span class="nx">userNameVal</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#d1&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">passWordVal</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#d2&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+        <span class="c1">// 检验用户名和密码是否输入</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">userNameVal</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 去对应的提示框中 展示错误信息</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.errors&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;用户名不能为空&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+         <span class="k">if</span> <span class="p">(</span><span class="nx">passWordVal</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 去对应的提示框中 展示错误信息</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.errors&#39;</span><span class="p">).</span><span class="nx">last</span><span class="p">().</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;密码不能为空&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
 
-    var inputEleList = $('input');
-    for(let i=0;i&lt;inputEleList.length;i++){
-        inputEleList[i].onfocus = function () {
-            $(this).next().text('')
-        }
-    }
+    <span class="kd">var</span> <span class="nx">inputEleList</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">inputEleList</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">inputEleList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">onfocus</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">next</span><span class="p">().</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_17">属性操作</h2>
-<pre><code class="js">attr(attrName)   // 返回第一个匹配元素的属性值
-attr(attrName, attrValue)   // 为所有匹配元素设置一个属性值
-attr({k1: v1, k2:v2})   // 为所有匹配元素设置多个属性值
-removeAttr()   // 从每一个匹配的元素中删除一个属性
-</code></pre>
+<h2 id="_17">属性操作<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">attr</span><span class="p">(</span><span class="nx">attrName</span><span class="p">)</span>   <span class="c1">// 返回第一个匹配元素的属性值</span>
+<span class="nx">attr</span><span class="p">(</span><span class="nx">attrName</span><span class="p">,</span> <span class="nx">attrValue</span><span class="p">)</span>   <span class="c1">// 为所有匹配元素设置一个属性值</span>
+<span class="nx">attr</span><span class="p">({</span><span class="nx">k1</span><span class="o">:</span> <span class="nx">v1</span><span class="p">,</span> <span class="nx">k2</span><span class="o">:</span><span class="nx">v2</span><span class="p">})</span>   <span class="c1">// 为所有匹配元素设置多个属性值</span>
+<span class="nx">removeAttr</span><span class="p">()</span>   <span class="c1">// 从每一个匹配的元素中删除一个属性</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103518.png" /></p>
 <p>对于checked和radio：</p>
-<pre><code class="js">// attr()不能动态获取用户输入的内容,而prop()可以判断用户是否选中
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// attr()不能动态获取用户输入的内容,而prop()可以判断用户是否选中</span>
 
-$('input').first().attr('checked', 'checked')   // 不能设置值
-$('input').first().prop('checked', 'checked')   // 可以设置值
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">)</span>   <span class="c1">// 不能设置值</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">)</span>   <span class="c1">// 可以设置值</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>移除属性：</p>
-<pre><code class="js">// $('input').first().removeProp('checked') 已经没有效果了
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// $(&#39;input&#39;).first().removeProp(&#39;checked&#39;) 已经没有效果了</span>
 
-$('input').first().prop('checked', false)
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><strong>注意：在1.x及2.x版本的jQuery中使用attr对checkbox进行赋值操作时会出bug，在3.x版本的jQuery中则没有这个问题。为了兼容性，我们在处理checkbox和radio的时候尽量使用特定的prop()，不要使用attr("checked", "checked")。</strong></p>
 <p>总结：</p>
@@ -1090,263 +2838,450 @@ $('input').first().prop('checked', false)
 <li>对于返回布尔值的比如checkbox、radio和option的是否被选中都用prop。</li>
 <li>删除也是使用prop</li>
 </ol>
-<h2 id="_18">文档处理</h2>
-<h3 id="_19">添加到元素内部的后面</h3>
-<pre><code class="js">var pEle = document.createElement('p')
-$('body').append(pEle)
-$(pEle).appendTo('body')    // 两者效果一样
-</code></pre>
+<h2 id="_18">文档处理<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h3 id="_19">添加到元素内部的后面<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">pEle</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">pEle</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">pEle</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span>    <span class="c1">// 两者效果一样</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103540.png" /></p>
-<h3 id="_20">添加到元素内部的前面</h3>
-<pre><code class="js">$(A).prepend(B)     // 把B前置到A
-$(A).prependTo(B)    // 把A前置到B
-</code></pre>
+<h3 id="_20">添加到元素内部的前面<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nx">A</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span>     <span class="c1">// 把B前置到A</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">A</span><span class="p">).</span><span class="nx">prependTo</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span>    <span class="c1">// 把A前置到B</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_21">添加到指定元素<strong>外部</strong>的后面</h3>
-<pre><code class="js">$(A).after(B)      // 把B放到A的后面
-$(A).insertAfter(B)    // 把A放到B的后面
-</code></pre>
+<h3 id="_21">添加到指定元素<strong>外部</strong>的后面<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nx">A</span><span class="p">).</span><span class="nx">after</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span>      <span class="c1">// 把B放到A的后面</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">A</span><span class="p">).</span><span class="nx">insertAfter</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span>    <span class="c1">// 把A放到B的后面</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_22">添加到指定元素<strong>外部</strong>的前面</h3>
-<pre><code class="js">$(A).before(B)         // 把B放到A的前面
-$(A).insertBefore(B)   // 把A放到B的前面
-</code></pre>
+<h3 id="_22">添加到指定元素<strong>外部</strong>的前面<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nx">A</span><span class="p">).</span><span class="nx">before</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span>         <span class="c1">// 把B放到A的前面</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">A</span><span class="p">).</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">B</span><span class="p">)</span>   <span class="c1">// 把A放到B的前面</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_23">移除和清空元素</h3>
-<pre><code class="js">remove()     // 从DOM中删除所有匹配的元素。
-empty()      // 删除匹配的元素集合中所有的子节点。
-</code></pre>
+<h3 id="_23">移除和清空元素<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">remove</span><span class="p">()</span>     <span class="c1">// 从DOM中删除所有匹配的元素。</span>
+<span class="nx">empty</span><span class="p">()</span>      <span class="c1">// 删除匹配的元素集合中所有的子节点。</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="_24">克隆</h3>
-<pre><code class="js">close()   //默认只克隆html和css，不克隆js   close(true) 克隆所有
-</code></pre>
+<h3 id="_24">克隆<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">close</span><span class="p">()</span>   <span class="c1">//默认只克隆html和css，不克隆js   close(true) 克隆所有</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>克隆示例</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-    &lt;style&gt;
-        button {
-            height: 100px;
-            width: 150px;
-            background-color: red;
-            border: 3px solid darkgrey;
-            color: white;
-            font-size: 18px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;button&gt;不经一番寒彻骨，怎得梅花扑鼻香。&lt;/button&gt;
-&lt;/body&gt;
-&lt;script&gt;
-    // var btnEle = $('button')[0];
-    // btnEle.onclick = function () {
-    //     $(this).clone(true).insertAfter(this)
-    // }
-    // jQuery事件的绑定方式
-    $('button').on('click', function(){
-        $(this).clone(true).insertAfter(this)
-    })
-&lt;/script&gt;
-&lt;/html&gt;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="nt">button</span> <span class="p">{</span>
+            <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">width</span><span class="p">:</span> <span class="mi">150</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+            <span class="k">border</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">darkgrey</span><span class="p">;</span>
+            <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+            <span class="k">font-size</span><span class="p">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>不经一番寒彻骨，怎得梅花扑鼻香。<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="c1">// var btnEle = $(&#39;button&#39;)[0];</span>
+    <span class="c1">// btnEle.onclick = function () {</span>
+    <span class="c1">//     $(this).clone(true).insertAfter(this)</span>
+    <span class="c1">// }</span>
+    <span class="c1">// jQuery事件的绑定方式</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">clone</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">insertAfter</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h1 id="_25">事件</h1>
-<h2 id="_26">常用事件</h2>
-<pre><code class="js">click(function(){...})
-hover(function(){...})
-blur(function(){...})
-focus(function(){...})
-change(function(){...})
-keyup(function(){...})
-</code></pre>
+<h1 id="_25">事件<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h1>
+<h2 id="_26">常用事件<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){...})</span>
+<span class="nx">hover</span><span class="p">(</span><span class="kd">function</span><span class="p">(){...})</span>
+<span class="nx">blur</span><span class="p">(</span><span class="kd">function</span><span class="p">(){...})</span>
+<span class="nx">focus</span><span class="p">(</span><span class="kd">function</span><span class="p">(){...})</span>
+<span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){...})</span>
+<span class="nx">keyup</span><span class="p">(</span><span class="kd">function</span><span class="p">(){...})</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="jquery_3">jQuery事件绑定</h2>
-<pre><code class="js">事件名(function(){
-    // 事件代码
-})
+<h2 id="jquery_3">jQuery事件绑定<a class="headerlink" href="#jquery_3" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">事件名</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">// 事件代码</span>
+<span class="p">})</span>
 
 
-$(选择器).on('事件名',function(){
-    // 事件名
-})   // 这种用途更广
-</code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="nx">选择器</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;事件名&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">// 事件名</span>
+<span class="p">})</span>   <span class="c1">// 这种用途更广</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="hover">hover绑定事件</h3>
-<pre><code class="html">&lt;script&gt;
-    $('span').hover(
-        function () {    // 鼠标悬浮上去的时候触发，如果只写了一个函数，那么悬浮和移开，只写同一个
-            alert('欢迎光临~')
-        },
-        function () {
-            alert('再见阿布~')
-        }
-    )
-&lt;/script&gt;
-</code></pre>
+<h3 id="hover">hover绑定事件<a class="headerlink" href="#hover" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span>
+        <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>    <span class="c1">// 鼠标悬浮上去的时候触发，如果只写了一个函数，那么悬浮和移开，只写同一个</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;欢迎光临~&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;再见阿布~&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h3 id="input">实时监测input内部输入内容</h3>
-<pre><code class="html">&lt;script&gt;
-    $('input').on('input',function () {
-        // 获取用户输入内容
-        console.log($(this).val())
-    })
-&lt;/script&gt;
-</code></pre>
+<h3 id="input">实时监测input内部输入内容<a class="headerlink" href="#input" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 获取用户输入内容</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">())</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_27">阻止后续事件执行</h2>
+<h2 id="_27">阻止后续事件执行<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
 <p>两种方法：</p>
 <ol>
 <li><code>return false; // 常见阻止表单提交等</code></li>
 <li>e.preventDefault();</li>
 </ol>
-<pre><code class="html">&lt;form action=&quot;&quot;&gt;
-    &lt;input type=&quot;submit&quot;&gt;
-    &lt;span&gt;&lt;/span&gt;
-&lt;/form&gt;
-&lt;script&gt;
-    $('input').click(function (e) {
-        $(this).next().text('有点意思~');
-        // 阻止标签后续的事件
-        // return false
-        // 方法2
-        e.preventDefault()
-    })
-&lt;/script&gt;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">next</span><span class="p">().</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;有点意思~&#39;</span><span class="p">);</span>
+        <span class="c1">// 阻止标签后续的事件</span>
+        <span class="c1">// return false</span>
+        <span class="c1">// 方法2</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h2 id="_28">事件冒泡</h2>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div&gt;div
-    &lt;p&gt;p
-        &lt;span&gt;span&lt;/span&gt;
-    &lt;/p&gt;
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;script&gt;
-    $('div').click(function () {
-        alert('div')
-    });
-    $('p').click(function () {
-        alert('p')
-    });
-    $('span').click(function () {
-        alert('span')
-    })
-&lt;/script&gt;
-&lt;/html&gt;
-</code></pre>
+<h2 id="_28">事件冒泡<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>div
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>p
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>span<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)</span>
+    <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+    <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>产生的效果：span标签在最里面，当点击span时，弹出框弹出三次。</p>
 <p>事件冒泡：一层一层往上触发</p>
 <p>阻止事件冒泡：<code>e.stopPropagation()</code></p>
-<h2 id="_29">页面载入</h2>
-<pre><code class="js">$(document).ready(function(){
-// 在这里写你的JS代码...
-})
+<h2 id="_29">页面载入<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="c1">// 在这里写你的JS代码...</span>
+<span class="p">})</span>
 
 
-// 简写
-$(function(){
-// 你在这里写你的代码
-})
-
-</code></pre>
+<span class="c1">// 简写</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="c1">// 你在这里写你的代码</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>你只要保证你的js代码写在body最下方即可</p>
-<h2 id="_30">事件委托</h2>
+<h2 id="_30">事件委托<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
 <p><strong>如果想让你后续动态创建的标签也有事件，那么建议你使用事件委托。</strong></p>
 <p>事件委托是通过事件冒泡的原理，利用父标签去捕获子标签的事件。</p>
-<pre><code class="js">$('body').on('click','button',function () {
-        alert(123)
-})
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
 
-<h1 id="_31">动画效果</h1>
-<pre><code class="js">$('.c1').hide(5000);    // 5000毫秒之内隐藏
-$('.c2').show(5000);     // 5000毫秒之内显示
-$('.c2').toggle(5000);   // 有内容就消失，没内容就显示
+<h1 id="_31">动画效果<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h1>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>    <span class="c1">// 5000毫秒之内隐藏</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c2&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>     <span class="c1">// 5000毫秒之内显示</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c2&#39;</span><span class="p">).</span><span class="nx">toggle</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>   <span class="c1">// 有内容就消失，没内容就显示</span>
 
-$('.c1').slideUp(5000);   // 向上卷起
-$('.c1').slideDown(5000)   // 向下出来
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">).</span><span class="nx">slideUp</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>   <span class="c1">// 向上卷起</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">).</span><span class="nx">slideDown</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>   <span class="c1">// 向下出来</span>
 
-$('.c1').fadeOut(5000);    // 渐渐消失
-$('.c1').fadeIn(5000);     // 渐渐显示
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>    <span class="c1">// 渐渐消失</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>     <span class="c1">// 渐渐显示</span>
 
-$('.c1').fadeTo(5000, 0.4)   // 0.4是透明度
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.c1&#39;</span><span class="p">).</span><span class="nx">fadeTo</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>   <span class="c1">// 0.4是透明度</span>
 
 
-// 自定义（了解即可）
-animate(p,[s],[e],[fn])
-</code></pre>
+<span class="c1">// 自定义（了解即可）</span>
+<span class="nx">animate</span><span class="p">(</span><span class="nx">p</span><span class="p">,[</span><span class="nx">s</span><span class="p">],[</span><span class="nx">e</span><span class="p">],[</span><span class="nx">fn</span><span class="p">])</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>自定义动画示例：</p>
-<pre><code class="html">&lt;!--点赞示例--&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-  &lt;style&gt;
-    div {
-      position: relative;
-      display: inline-block;
-    }
-    div&gt;i {
-      display: inline-block;
-      color: red;
-      position: absolute;
-      right: -16px;
-      top: -5px;
-      opacity: 1;
-    }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c">&lt;!--点赞示例--&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="nt">div</span> <span class="p">{</span>
+      <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+      <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">div</span><span class="o">&gt;</span><span class="nt">i</span> <span class="p">{</span>
+      <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+      <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+      <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+      <span class="k">right</span><span class="p">:</span> <span class="mi">-16</span><span class="kt">px</span><span class="p">;</span>
+      <span class="k">top</span><span class="p">:</span> <span class="mi">-5</span><span class="kt">px</span><span class="p">;</span>
+      <span class="k">opacity</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
 
-&lt;div id=&quot;d1&quot;&gt;点赞&lt;/div&gt;
-&lt;script&gt;
-  $(&quot;#d1&quot;).on(&quot;click&quot;, function () {
-    var newI = document.createElement(&quot;i&quot;);
-    newI.innerText = &quot;+1&quot;;
-    $(this).append(newI);
-    $(this).children(&quot;i&quot;).animate({
-      opacity: 0
-    }, 1000)
-  })
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;d1&quot;</span><span class="p">&gt;</span>点赞<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#d1&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">newI</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">);</span>
+    <span class="nx">newI</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s2">&quot;+1&quot;</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">newI</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">children</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span>
+      <span class="nx">opacity</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
 
-<h1 id="each">each</h1>
+<h1 id="each">each<a class="headerlink" href="#each" title="Permanent link">&para;</a></h1>
 <p>前端for循环</p>
-<pre><code class="js">li =[1,2,3,4,5]
-$.each(li,function(index, obj){
-  console.log(index, obj);   //index是索引，ele是每次循环的具体元素。
-})
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">li</span> <span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">li</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">obj</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>   <span class="c1">//index是索引，ele是每次循环的具体元素。</span>
+<span class="p">})</span>
 
 
-// 输出
-0 1
-1 2
-2 3
-3 4
-4 5
-</code></pre>
+<span class="c1">// 输出</span>
+<span class="mi">0</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">3</span> <span class="mi">4</span>
+<span class="mi">4</span> <span class="mi">5</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103615.png" /></p>
 <p><strong>.each(function(index, Element))：</strong></p>
@@ -1355,72 +3290,113 @@ $.each(li,function(index, obj){
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103635.png" /></p>
 <p><strong>注意：</strong></p>
 <p>在遍历过程中可以使用 <code>return false</code>提前结束each循环。</p>
-<h1 id="data">.data()</h1>
+<h1 id="data">.data()<a class="headerlink" href="#data" title="Permanent link">&para;</a></h1>
 <p><strong>.data(key, value):</strong></p>
 <p>描述：在匹配的元素上存储任意相关数据。</p>
-<pre><code>$(&quot;div&quot;).data(&quot;k&quot;,100);//给所有div标签都保存一个名为k，值为100
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">$(&quot;div&quot;).data(&quot;k&quot;,100);//给所有div标签都保存一个名为k，值为100</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><strong>.data(key):</strong></p>
 <p>描述: 返回匹配的元素集合中的第一个元素的给定名称的数据存储的值—通过 <code>.data(name, value)</code>或 <code>HTML5 data-*</code>属性设置。</p>
-<pre><code>$(&quot;div&quot;).data(&quot;k&quot;);//返回第一个div标签中保存的&quot;k&quot;的值
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">$(&quot;div&quot;).data(&quot;k&quot;);//返回第一个div标签中保存的&quot;k&quot;的值</span>
+</code></pre></div>
+</td></tr></table>
 
 <p>.removeData(key):</p>
 <p>描述：移除存放在元素上的数据，不加key参数表示移除所有保存的数据。</p>
-<pre><code>$(&quot;div&quot;).removeData(&quot;k&quot;);  //移除元素上存放k对应的数据
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">$(&quot;div&quot;).removeData(&quot;k&quot;);  //移除元素上存放k对应的数据</span>
+</code></pre></div>
+</td></tr></table>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/setcreed/pic_img/cdn_img/20200209103728.png" /></p>
+                
+                  
+                
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../08_前端之Bootstrap基础/" class="btn btn-neutral float-right" title="08_前端之Bootstrap基础">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../06_前端基础之BOM和DOM/" class="btn btn-neutral" title="06_前端基础之BOM和DOM"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../06_%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E4%B9%8BBOM%E5%92%8CDOM/" title="06_前端基础之BOM和DOM" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                06_前端基础之BOM和DOM
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../08_%E5%89%8D%E7%AB%AF%E4%B9%8BBootstrap%E5%9F%BA%E7%A1%80/" title="08_前端之Bootstrap基础" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                08_前端之Bootstrap基础
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 setcreed
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <p>Copyright &copy; 2019 - 2020 setcreed</p>
+      <a href="https://github.com/setcreed" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
-        <span><a href="../06_前端基础之BOM和DOM/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-      
-        <span style="margin-left: 15px"><a href="../08_前端之Bootstrap基础/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>
