@@ -1,6 +1,6 @@
 ## 介绍
 
-最近整理了python后端开发学习工作中的笔记，内容包含了python基础、网络并发编程、常用模块、web开发框架、常用数据库等。如有人看到这些笔记，整不明白的，可以联系我，邮件为cwzdzg@163.com。
+最近整理了python后端开发学习工作中的笔记，内容包含了python基础、网络并发编程、常用模块、web开发框架、常用数据库等。
 
 你可以在以下地址阅读：
 
@@ -20,7 +20,7 @@
 pip install -r requirements.txt
 ```
 
-或者可以直接clone本项目查看电子书
+可以直接clone本项目查看电子书
 
 ```bash
 mkdocs serve # 修改自动更新，浏览器打开 http://localhost:8000 访问
