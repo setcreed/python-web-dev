@@ -2,7 +2,7 @@
 
 最近整理了python后端开发学习工作中的笔记，内容包含了python基础、网络并发编程、常用模块、web开发框架、常用数据库等。如有人看到这些笔记，整不明白的，可以联系我，邮件为cwzdzg@163.com。
 
-你可以在一下地址阅读：
+你可以在以下地址阅读：
 
 - 阅读地址：<https://setcreed.github.io/python-web-dev/>
 - 本项目地址：<https://github.com/setcreed/python-web-dev/>
